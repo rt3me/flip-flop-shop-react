@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Flip Flop Shop React
+
+* Flip Flop store e-commerce HTML template built with React
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
