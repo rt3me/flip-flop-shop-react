@@ -1,6 +1,7 @@
 # Flip Flop Shop React
 
 * Flip Flop store e-commerce HTML template built with React
+* HTML Bootstrap version: https://github.com/rt3me/flip-flop-shop
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
