@@ -7,30 +7,7 @@ import Contact from "./ContactComponent";
 import CampsiteInfo from "./CampsiteInfoComponent";
 import About from "./AboutComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import { actions } from "react-redux-form";
 import { postComment, fetchCampsites, fetchComments, fetchPromotions, fetchPartners, postFeedback } from "../redux/ActionCreators";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
-
-const mapStateToProps = (state) => {
-  return {
-    campsites: state.campsites,
-    comments: state.comments,
-    partners: state.partners,
-    promotions: state.promotions,
-  };
-};
-
-// can be set up as a function or an object (recommended)
-const mapDispatchToProps = {
-  postComment: (campsiteId, rating, author, text) => postComment(campsiteId, rating, author, text),
-  fetchCampsites: () => fetchCampsites(),
-  resetFeedbackForm: () => actions.reset("feedbackForm"),
-  fetchComments: () => fetchComments(),
-  fetchPromotions: () => fetchPromotions(),
-  fetchPartners: () => fetchPartners(),
-  postFeedback: (newFeedback) => postFeedback(newFeedback),
-};
 
 class Main extends Component {
   componentDidMount() {
@@ -38,7 +15,6 @@ class Main extends Component {
     this.props.fetchComments();
     this.props.fetchPromotions();
     this.props.fetchPartners();
-    console.log("Props are theeeese:", this.props.partners);
   }
 
   render() {
@@ -92,4 +68,4 @@ class Main extends Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
+export default withRouter(Main);
