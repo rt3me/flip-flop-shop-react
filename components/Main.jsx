@@ -19,16 +19,12 @@ class Main extends Component {
     return (
       <div>
         <Header />
-        <TransitionGroup>
-          <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/contact" render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} />} />
-              <Route exact path="/about" render={() => <About partners={this.props.partners} isLoading={this.props.partners.isLoading} ErrMess={this.props.partners.errMess} />} />
-              <Redirect to="/" />
-            </Switch>
-          </CSSTransition>
-        </TransitionGroup>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/contact" render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} />} />
+          <Route exact path="/about" render={() => <About partners={this.props.partners} isLoading={this.props.partners.isLoading} ErrMess={this.props.partners.errMess} />} />
+          <Redirect to="/" />
+        </Switch>
         <Footer />
       </div>
     );
