@@ -7,8 +7,6 @@ import About from "./AboutComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 
 const Main = () => {
-  componentDidMount();
-
   const HomePage = () => {
     return <Home />;
   };
