@@ -16,8 +16,8 @@ const Main = () => {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/contact" render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} />} />
-        <Route exact path="/about" render={() => <About partners={this.props.partners} isLoading={this.props.partners.isLoading} ErrMess={this.props.partners.errMess} />} />
+        <Route exact path="/contact" component={Contact} />
+        <Route exact path="/about" component={About} />
         <Redirect to="/" />
       </Switch>
       <Footer />
