@@ -37,7 +37,7 @@ class Header extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="mt-4 p-5 bg-primary text-white rounded jumbotron">
+        <div className="p-5 bg-primary text-white jumbotron">
           <div className="container">
             <div className="row">
               <div className="col">
