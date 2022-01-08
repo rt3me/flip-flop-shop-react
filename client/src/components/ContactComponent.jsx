@@ -86,7 +86,7 @@ class Contact extends Component {
                   First Name
                 </Label>
                 <Col md={10}>
-                  <Control.text
+                  <Control.Text
                     model=".firstName"
                     id="firstName"
                     name="firstName"
