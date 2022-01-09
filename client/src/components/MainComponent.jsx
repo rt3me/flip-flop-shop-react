@@ -4,7 +4,7 @@ import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
 import Contact from "./ContactComponent";
 import About from "./AboutComponent";
-import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { Routes, Route, useLocation, useParams, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { actions } from "react-redux-form";
 import { postComment, fetchCampsites, fetchComments, fetchPromotions, fetchPartners, postFeedback } from "../redux/ActionCreators";
@@ -56,17 +56,24 @@ class Main extends Component {
       );
     };
 
+    const AboutPage = () => {
+      return <About partners={this.props.partners} isLoading={this.props.partners.isLoading} ErrMess={this.props.partners.errMess} />;
+    };
+
+    const ContactPage = () => {
+      return <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} />;
+    };
+
     return (
       <div>
         <Header />
         <TransitionGroup>
           <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/contact" render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} />} />
-              <Route exact path="/about" render={() => <About partners={this.props.partners} isLoading={this.props.partners.isLoading} ErrMess={this.props.partners.errMess} />} />
-              <Redirect to="/" />
-            </Switch>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="about" element={<AboutPage />} />
+              <Route path="contact" element={<ContactPage />} />
+            </Routes>
           </CSSTransition>
         </TransitionGroup>
         <Footer />
@@ -74,5 +81,19 @@ class Main extends Component {
     );
   }
 }
+
+export const withRouter = (ComponentWithRouter) => (props) => {
+  const location = useLocation();
+  const match = { params: useParams() };
+  const navigate = useNavigate();
+  const history = {
+    back: () => navigate(-1),
+    goBack: () => navigate(-1),
+    location,
+    push: (url, state) => navigate(url, { state }),
+    replace: (url, state) => navigate(url, { replace: true, state }),
+  };
+  return <ComponentWithRouter location={location} match={match} navigate={navigate} history={history} {...props} />;
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
