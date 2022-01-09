@@ -4,6 +4,8 @@ import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
 import Contact from "./ContactComponent";
 import About from "./AboutComponent";
+import Login from "./LoginComponent";
+import Register from "./RegisterComponent";
 import { Routes, Route, useLocation, useParams, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { actions } from "react-redux-form";
@@ -73,6 +75,8 @@ class Main extends Component {
               <Route path="/" element={<HomePage />} />
               <Route path="about" element={<AboutPage />} />
               <Route path="contact" element={<ContactPage />} />
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
             </Routes>
           </CSSTransition>
         </TransitionGroup>
