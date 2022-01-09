@@ -61,11 +61,6 @@ class Header extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/directory">
-                    <i className="fa fa-list fa-lg" /> Directory
-                  </NavLink>
-                </NavItem>
-                <NavItem>
                   <NavLink className="nav-link" to="/about">
                     <i className="fa fa-info fa-lg" /> About
                   </NavLink>
@@ -75,12 +70,16 @@ class Header extends Component {
                     <i className="fa fa-address-card fa-lg" /> Contact Us
                   </NavLink>
                 </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/login">
+                    <span className="navbar-text ml-auto">
+                      <Button outline>
+                        <i className="fa fa-sign-in fa-lg" /> Login
+                      </Button>
+                    </span>
+                  </NavLink>
+                </NavItem>
               </Nav>
-              <span className="navbar-text ml-auto">
-                <Button outline onClick={this.toggleModal}>
-                  <i className="fa fa-sign-in fa-lg" /> Login
-                </Button>
-              </span>
             </Collapse>
           </div>
         </Navbar>
