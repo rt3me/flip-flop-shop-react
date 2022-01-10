@@ -1,4 +1,10 @@
 import React, { Component } from "react";
+import { Routes, Route, useLocation, useParams, useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
+import { actions } from "react-redux-form";
+import { postComment, fetchCampsites, fetchComments, fetchPromotions, fetchPartners, postFeedback } from "../redux/ActionCreators";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import toast, { Toaster } from "react-hot-toast";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
@@ -6,11 +12,6 @@ import Contact from "./ContactComponent";
 import About from "./AboutComponent";
 import Login from "./LoginComponent";
 import Register from "./RegisterComponent";
-import { Routes, Route, useLocation, useParams, useNavigate } from "react-router-dom";
-import { connect } from "react-redux";
-import { actions } from "react-redux-form";
-import { postComment, fetchCampsites, fetchComments, fetchPromotions, fetchPartners, postFeedback } from "../redux/ActionCreators";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const mapStateToProps = (state) => {
   return {
@@ -69,6 +70,7 @@ class Main extends Component {
     return (
       <div>
         <Header />
+        <Toaster position="bottom-right" />
         <TransitionGroup>
           <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
             <Routes>
