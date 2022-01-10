@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { actions } from "react-redux-form";
 import { postComment, fetchCampsites, fetchComments, fetchPromotions, fetchPartners, postFeedback } from "../redux/ActionCreators";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
