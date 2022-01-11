@@ -24,9 +24,7 @@ app.use(
 );
 
 // autoload routes
-app.get("/api/register", (req, res) => {
-  res.send("You have reached the node server");
-});
+readdirSync("./routes").map((r) => app.use("/api", require(`./routes/${r}`)));
 
 // run app, listen on port
 const port = process.env.PORT || 8000;
