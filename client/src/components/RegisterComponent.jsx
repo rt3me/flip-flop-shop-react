@@ -22,9 +22,9 @@ const Register = () => {
 
       if (data.error) {
         toast.error(data.error);
+      } else {
+        toast.success("Registration successful. Please login.");
       }
-
-      toast.success("Registration successful. Please login.");
     } catch (err) {
       console.log(err);
       toast.error("Something went wrong. Try again.");
