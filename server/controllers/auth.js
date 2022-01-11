@@ -8,6 +8,11 @@ export const register = async (req, res) => {
         error: "Name is required",
       });
     }
+    if (!password || password.length < 8) {
+      return res.json({
+        error: "Password is required and should be at least 8 characters",
+      });
+    }
   } catch (err) {
     console.log(err);
   }
