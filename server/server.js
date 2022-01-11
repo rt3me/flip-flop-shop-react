@@ -24,5 +24,10 @@ app.use(
 );
 
 // autoload routes
+app.get("/api/register", (res, req) => {
+  res.send("You have reached the node server");
+});
 
 // run app, listen on port
+const port = process.env.PORT || 8000;
+app.listen(port, () => console.log(`Server is running on port ${port}`));
