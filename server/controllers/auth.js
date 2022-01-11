@@ -13,6 +13,9 @@ export const register = async (req, res) => {
         error: "Password is required and should be at least 8 characters",
       });
     }
+    res.json({
+      data: "/register endpoint",
+    });
   } catch (err) {
     console.log(err);
   }
