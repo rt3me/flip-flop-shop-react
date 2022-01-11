@@ -6,3 +6,17 @@ import { readdirSync } from "fs";
 // cannot use import syntax
 const morgan = require("morgan");
 require("dotenv").config();
+
+const app = express();
+
+// db
+mongoose
+  .connect(process.env.DATABASE)
+  .then(() => console.log("DB Connected"))
+  .catch((err) => console.log("DB Connection Error:", err));
+
+// middlewares
+
+// autoload routes
+
+// run app, listen on port
