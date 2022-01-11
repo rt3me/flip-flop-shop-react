@@ -1,4 +1,4 @@
-import User from "models/user";
+import User from "../models/user";
 import { hashPassword, comparePassword } from "../helpers/auth";
 
 export const register = async (req, res) => {
