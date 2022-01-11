@@ -24,7 +24,7 @@ app.use(
 );
 
 // autoload routes
-app.get("/api/register", (res, req) => {
+app.get("/api/register", (req, res) => {
   res.send("You have reached the node server");
 });
 
