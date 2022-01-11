@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 
-export const hashPassword = () => {
+export const hashPassword = (password) => {
   return new Promise((resolve, reject) => {
     bcrypt.genSalt(16, (err, salt) => {
       if (err) {
