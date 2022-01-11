@@ -16,7 +16,7 @@ export const register = async (req, res) => {
         error: "Password is required and should be at least 8 characters",
       });
     }
-    const exist = await User.find({ email });
+    const exist = await User.findOne({ email });
     if (exist) {
       return res.json({
         error: "Email is already in use",
