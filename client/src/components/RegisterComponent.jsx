@@ -19,6 +19,11 @@ const Register = () => {
         password,
       });
       console.log(data);
+
+      if (data.error) {
+        toast.error(data.error);
+      }
+
       toast.success("Registration successful. Please login.");
     } catch (err) {
       console.log(err);
