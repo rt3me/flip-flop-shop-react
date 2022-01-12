@@ -5,7 +5,6 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,7 +15,6 @@ const Login = () => {
     try {
       e.preventDefault();
       const { data } = await axios.post("http://localhost:8000/api/login", {
-        name,
         email,
         password,
       });
@@ -25,7 +23,6 @@ const Login = () => {
       if (data.error) {
         toast.error(data.error);
       } else {
-        setName("");
         setEmail("");
         setPassword("");
         toast.success(`Hello, ${data.user.name}. Thanks for joining!`);
@@ -56,11 +53,6 @@ const Login = () => {
           <h3>Access your account.</h3>
           <p>Login to access your subscription.</p>
           <Form>
-            <InputGroup>
-              <InputGroupText>Name</InputGroupText>
-              <Input type="text" onChange={(e) => setName(e.target.value)} value={name} id="nameInput" name="name" placeholder="name" />
-            </InputGroup>
-            <br />
             <InputGroup>
               <InputGroupText>Email</InputGroupText>
               <Input type="email" onChange={(e) => setEmail(e.target.value)} value={email} id="emailInput" name="email" placeholder="user@email.com" />
