@@ -11,6 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleClick = async (e) => {
+    console.log(`Email: ${email} Password: ${password}`);
     try {
       e.preventDefault();
       const { data } = await axios.post("http://localhost:8000/api/login", {
