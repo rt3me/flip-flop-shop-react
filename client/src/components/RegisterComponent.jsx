@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const Register = () => {
+const Register = ({ history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,13 +18,17 @@ const Register = () => {
         email,
         password,
       });
-      console.log(data);
+      console.log("data:", data);
 
       if (data.error) {
         toast.error(data.error);
       } else {
-        toast.success("Registration successful. Please login.");
+        setName("");
+        setEmail("");
+        setPassword("");
+        toast.success(`Hello, ${data.user.name}. Thanks for joining!`);
       }
+      history.push("/login");
     } catch (err) {
       console.log(err);
       toast.error("Something went wrong. Try again.");
