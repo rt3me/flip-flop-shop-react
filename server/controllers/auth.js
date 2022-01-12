@@ -1,5 +1,6 @@
 import User from "../models/user";
 import { hashPassword, comparePassword } from "../helpers/auth";
+import jwt from "jsonwebtoken";
 
 export const register = async (req, res) => {
   try {
@@ -60,6 +61,10 @@ export const login = async (req, res) => {
         error: "Incorrect password",
       });
     }
+    // create signed token
+    const toke = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
+    });
   } catch (err) {
     console.log(err);
   }
