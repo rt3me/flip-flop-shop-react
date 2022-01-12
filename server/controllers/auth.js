@@ -23,7 +23,7 @@ export const register = async (req, res) => {
       });
     }
     // hash password
-    const hashedPassword = hashPassword(password);
+    const hashedPassword = await hashPassword(password);
     try {
       const user = await new User({
         name,
