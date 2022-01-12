@@ -62,8 +62,15 @@ export const login = async (req, res) => {
       });
     }
     // create signed token
-    const toke = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
+    });
+
+    const { password, ...rest } = user._doc;
+
+    res.json({
+      token,
+      user: rest,
     });
   } catch (err) {
     console.log(err);
