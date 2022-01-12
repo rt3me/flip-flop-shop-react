@@ -43,3 +43,11 @@ export const register = async (req, res) => {
     console.log(err);
   }
 };
+
+export const login = async (req, res) => {
+  try {
+    console.log(req.body);
+  } catch (err) {
+    console.log(err);
+  }
+};
