@@ -46,7 +46,20 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
-    console.log(req.body);
+    // check email
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) {
+      return res.json({
+        error: "User not found",
+      });
+    }
+    // check password
+    const match = await comparePassword(req.body.password, user.password);
+    if (!match) {
+      return res.json({
+        error: "Incorrect password",
+      });
+    }
   } catch (err) {
     console.log(err);
   }
