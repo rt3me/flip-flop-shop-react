@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Breadcrumb, BreadcrumbItem, Form, InputGroup, InputGroupText, Input, Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const Register = ({ history }) => {
+const Register = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleClick = async (e) => {
     // console.log(name, email, password);
@@ -28,7 +30,7 @@ const Register = ({ history }) => {
         setPassword("");
         toast.success(`Hello, ${data.user.name}. Thanks for joining!`);
       }
-      history.push("/login");
+      navigate("/login");
     } catch (err) {
       console.log(err);
       toast.error("Something went wrong. Try again.");
