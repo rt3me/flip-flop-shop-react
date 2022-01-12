@@ -1,11 +1,42 @@
-import React from "react";
-import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from "reactstrap";
-import { Link } from "react-router-dom";
-import { Fade, Stagger } from "react-animation-components";
-import { Loading } from "./LoadingComponent";
-import { baseUrl } from "../shared/baseUrl";
+import React, { useState } from "react";
+import { Breadcrumb, BreadcrumbItem, Form, InputGroup, InputGroupText, Input, Button } from "reactstrap";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
 
-function Login(props) {
+const Login = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleClick = async (e) => {
+    // console.log(name, email, password);
+    try {
+      e.preventDefault();
+      const { data } = await axios.post("http://localhost:8000/api/register", {
+        name,
+        email,
+        password,
+      });
+      console.log("data:", data);
+
+      if (data.error) {
+        toast.error(data.error);
+      } else {
+        setName("");
+        setEmail("");
+        setPassword("");
+        toast.success(`Hello, ${data.user.name}. Thanks for joining!`);
+      }
+      navigate("/login");
+    } catch (err) {
+      console.log(err);
+      toast.error("Something went wrong. Try again.");
+    }
+  };
+
   return (
     <div className="container">
       <div className="row">
@@ -14,54 +45,48 @@ function Login(props) {
             <BreadcrumbItem>
               <Link to="/home">Home</Link>
             </BreadcrumbItem>
-            <BreadcrumbItem active>About Us</BreadcrumbItem>
+            <BreadcrumbItem active>Register</BreadcrumbItem>
           </Breadcrumb>
-          <h2>About Us</h2>
+          <h2>Register</h2>
           <hr />
         </div>
       </div>
-      <div className="row row-content">
-        <div className="col-sm-6">
-          <h3>Our Mission</h3>
-          <p>
-            We present a curated database of the best campsites in the vast woods and backcountry of the World Wide Web Wilderness. We increase access to adventure for the public while promoting safe and respectful use of resources. The expert
-            wilderness trekkers on our staff personally verify each campsite to make sure that they are up to our standards. We also present a platform for campers to share reviews on campsites they have visited with each other.
-          </p>
-        </div>
-        <div className="col-sm-6">
-          <Card>
-            <CardHeader className="text-white bg-primary">
-              <h3>Facts At a Glance</h3>
-            </CardHeader>
-            <CardBody>
-              <dl className="row">
-                <dt className="col-6">Founded</dt>
-                <dd className="col-6">February 3, 2016</dd>
-                <dt className="col-6">No. of Campsites in 2019</dt>
-                <dd className="col-6">563</dd>
-                <dt className="col-6">No. of Reviews in 2019</dt>
-                <dd className="col-6">4388</dd>
-                <dt className="col-6">Employees</dt>
-                <dd className="col-6">42</dd>
-              </dl>
-            </CardBody>
-          </Card>
-        </div>
+      <div className="row">
         <div className="col">
-          <Card className="mt-3 bg-light">
-            <CardBody>
-              <blockquote className="blockquote">
-                <p className="mb-0">I will not follow where the path may lead, but I will go where there is no path, and I will leave a trail.</p>
-                <footer className="blockquote-footer">
-                  Muriel Strode, <cite title="Source Title">"Wind-Wafted Wild Flowers" - The Open Court, 1903</cite>
-                </footer>
-              </blockquote>
-            </CardBody>
-          </Card>
+          <h3>Let's Get Started</h3>
+          <p>Sign up for free. No credit card required.</p>
+          <Form>
+            <InputGroup>
+              <InputGroupText>Name</InputGroupText>
+              <Input type="text" onChange={(e) => setName(e.target.value)} value={name} id="nameInput" name="name" placeholder="name" />
+            </InputGroup>
+            <br />
+            <InputGroup>
+              <InputGroupText>Email</InputGroupText>
+              <Input type="email" onChange={(e) => setEmail(e.target.value)} value={email} id="emailInput" name="email" placeholder="user@email.com" />
+            </InputGroup>
+            <br />
+            <InputGroup>
+              <InputGroupText>Password</InputGroupText>
+              <Input type="password" onChange={(e) => setPassword(e.target.value)} value={password} id="passwordInput" name="password" placeholder="password" />
+            </InputGroup>
+            <br />
+            <Button onClick={handleClick} color="primary">
+              Register
+            </Button>
+          </Form>
+          <br />
+          <br />
+          <br />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <pre>{JSON.stringify({ name, email, password }, null, 4)}</pre>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Login;
