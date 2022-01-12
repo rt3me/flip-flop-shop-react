@@ -45,9 +45,9 @@ const Login = () => {
             <BreadcrumbItem>
               <Link to="/home">Home</Link>
             </BreadcrumbItem>
-            <BreadcrumbItem active>Register</BreadcrumbItem>
+            <BreadcrumbItem active>Login</BreadcrumbItem>
           </Breadcrumb>
-          <h2>Register</h2>
+          <h2>Login</h2>
           <hr />
         </div>
       </div>
