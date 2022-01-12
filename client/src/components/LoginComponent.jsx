@@ -73,7 +73,7 @@ const Login = () => {
       </div>
       <div className="row">
         <div className="col">
-          <pre>{JSON.stringify({ name, email, password }, null, 4)}</pre>
+          <pre>{JSON.stringify({ email, password }, null, 4)}</pre>
         </div>
       </div>
     </div>
