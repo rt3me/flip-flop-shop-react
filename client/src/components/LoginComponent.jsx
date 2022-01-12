@@ -15,7 +15,7 @@ const Login = () => {
     // console.log(name, email, password);
     try {
       e.preventDefault();
-      const { data } = await axios.post("http://localhost:8000/api/register", {
+      const { data } = await axios.post("http://localhost:8000/api/login", {
         name,
         email,
         password,
@@ -53,8 +53,8 @@ const Login = () => {
       </div>
       <div className="row">
         <div className="col">
-          <h3>Let's Get Started</h3>
-          <p>Sign up for free. No credit card required.</p>
+          <h3>Access your account.</h3>
+          <p>Login to access your subscription.</p>
           <Form>
             <InputGroup>
               <InputGroupText>Name</InputGroupText>
