@@ -5,51 +5,7 @@ import { Fade, Stagger } from "react-animation-components";
 import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
 
-function About(props) {
-  function PartnerList(props) {
-    const partners = props.partners.partners.map((partner) => {
-      return (
-        <Fade in key={partner.id}>
-          <Media tag="li">
-            <RenderPartner partner={partner} isLoading={props.isLoading} errMess={props.ErrMess} />
-          </Media>
-        </Fade>
-      );
-    });
-    if (props.partners.isLoading) {
-      return <Loading />;
-    }
-    if (props.partners.errMess) {
-      return (
-        <div className="col">
-          <h4>{props.partners.errMess}</h4>
-        </div>
-      );
-    }
-    return (
-      <div className="mt-4 col">
-        <Media list>
-          <Stagger in>{partners}</Stagger>
-        </Media>
-      </div>
-    );
-  }
-
-  function RenderPartner({ partner }) {
-    if (partner) {
-      return (
-        <React.Fragment>
-          <Media object src={baseUrl + partner.image} alt="partner.name" width="150" />
-          <Media body className="mb-4 ml-5">
-            <Media heading>{partner.name}</Media>
-            {partner.description}
-          </Media>
-        </React.Fragment>
-      );
-    }
-    return <div />;
-  }
-
+function Login(props) {
   return (
     <div className="container">
       <div className="row">
@@ -104,14 +60,8 @@ function About(props) {
           </Card>
         </div>
       </div>
-      <div className="row row-content">
-        <div className="col-12">
-          <h3>Community Partners</h3>
-        </div>
-        <PartnerList partners={props.partners} />
-      </div>
     </div>
   );
 }
 
-export default About;
+export default Login;
