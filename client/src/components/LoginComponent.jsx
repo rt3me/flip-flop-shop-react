@@ -25,9 +25,8 @@ const Login = () => {
       } else {
         setEmail("");
         setPassword("");
-        toast.success(`Hello, ${data.user.name}. Thanks for joining!`);
       }
-      navigate("/login");
+      navigate("/");
     } catch (err) {
       console.log(err);
       toast.error("Something went wrong. Try again.");
