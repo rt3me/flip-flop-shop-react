@@ -55,7 +55,7 @@ const Header = () => {
               ) : (
                 <React.Fragment>
                   <NavItem>
-                    <NavLink className="nav-link" to="/login">
+                    <NavLink className="nav-link" to="/register">
                       <i className="fa fa-sign-in fa-lg" /> Register
                     </NavLink>
                   </NavItem>
