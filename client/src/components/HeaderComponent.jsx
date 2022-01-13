@@ -8,6 +8,11 @@ const Header = () => {
 
   const navigate = useNavigate();
 
+  const logout = () => {
+    localStorage.removeItem("auth");
+    navigate("/login");
+  };
+
   return (
     <React.Fragment>
       <div className="p-5 bg-primary text-white jumbotron">
@@ -47,7 +52,7 @@ const Header = () => {
               {isAuth() ? (
                 <React.Fragment>
                   <NavItem>
-                    <NavLink className="nav-link" to="/login">
+                    <NavLink className="nav-link" to="/login" onClick={() => logout()}>
                       <i className="fa fa-sign-in fa-lg" /> Username / Logout
                     </NavLink>
                   </NavItem>
