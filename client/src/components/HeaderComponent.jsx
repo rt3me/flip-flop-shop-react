@@ -6,22 +6,7 @@ import { isAuth } from "../utils/functions";
 const Header = () => {
   const [navOpen, setNavOpen] = useState("");
 
-  function constructor(props) {
-    this.state = {
-      isNavOpen: false,
-      isModalOpen: false,
-    };
-
-    this.toggleNav = this.toggleNav.bind(this);
-    this.toggleModal = this.toggleModal.bind(this);
-    this.handleLogin = this.handleLogin.bind(this);
-  }
-
   const navigate = useNavigate();
-
-  function toggleNav() {
-    setNavOpen(!navOpen);
-  }
 
   return (
     <React.Fragment>
