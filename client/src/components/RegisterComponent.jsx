@@ -30,6 +30,7 @@ const Register = () => {
         setPassword("");
         toast.success(`Hello, ${data.user.name}. Thanks for joining!`);
       }
+      localStorage.setItem("auth", JSON.stringify(data));
       navigate("/login");
     } catch (err) {
       console.log(err);
