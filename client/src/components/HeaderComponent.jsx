@@ -17,6 +17,8 @@ class Header extends Component {
     this.handleLogin = this.handleLogin.bind(this);
   }
 
+  navigate = useNavigate();
+
   handleLogin(event) {
     alert(`Username: ${this.username.value} Password: ${this.password.value} Remember: ${this.remember.checked}`);
     this.toggleModal();
@@ -71,21 +73,29 @@ class Header extends Component {
                     <i className="fa fa-address-card fa-lg" /> Contact Us
                   </NavLink>
                 </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/login">
-                    <i className="fa fa-sign-in fa-lg" /> Register
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/login">
-                    <i className="fa fa-sign-in fa-lg" /> Login
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/login">
-                    <i className="fa fa-sign-in fa-lg" /> Username / Logout
-                  </NavLink>
-                </NavItem>
+
+                {isAuth() ? (
+                  <React.Fragment>
+                    <NavItem>
+                      <NavLink className="nav-link" to="/login">
+                        <i className="fa fa-sign-in fa-lg" /> Username / Logout
+                      </NavLink>
+                    </NavItem>
+                  </React.Fragment>
+                ) : (
+                  <React.Fragment>
+                    <NavItem>
+                      <NavLink className="nav-link" to="/login">
+                        <i className="fa fa-sign-in fa-lg" /> Register
+                      </NavLink>
+                    </NavItem>
+                    <NavItem>
+                      <NavLink className="nav-link" to="/login">
+                        <i className="fa fa-sign-in fa-lg" /> Login
+                      </NavLink>
+                    </NavItem>
+                  </React.Fragment>
+                )}
               </Nav>
             </Collapse>
           </div>
