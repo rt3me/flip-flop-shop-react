@@ -29,9 +29,9 @@ const Register = () => {
         setEmail("");
         setPassword("");
         toast.success(`Hello, ${data.user.name}. Thanks for joining!`);
+        localStorage.setItem("auth", JSON.stringify(data));
+        navigate("/");
       }
-      localStorage.setItem("auth", JSON.stringify(data));
-      navigate("/");
     } catch (err) {
       console.log(err);
       toast.error("Something went wrong. Try again.");
