@@ -6,7 +6,7 @@ import { UserContext } from "../context";
 
 const Header = () => {
   const [state, setState] = useContext(UserContext);
-  const [navOpen, setNavOpen] = useState("");
+  const [navOpen, setNavOpen] = useState(false);
 
   const navigate = useNavigate();
 
