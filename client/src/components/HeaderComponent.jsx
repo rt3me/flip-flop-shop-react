@@ -50,13 +50,11 @@ const Header = () => {
               </NavItem>
 
               {isAuth() ? (
-                <React.Fragment>
-                  <NavItem>
-                    <NavLink className="nav-link" to="/login" onClick={() => logout()}>
-                      <i className="fa fa-sign-in fa-lg" /> Username / Logout
-                    </NavLink>
-                  </NavItem>
-                </React.Fragment>
+                <li className="nav-item">
+                  <span className="nav-link" onClick={logout}>
+                    <i className="fa fa-sign-in fa-lg" /> Username / Logout
+                  </span>
+                </li>
               ) : (
                 <React.Fragment>
                   <NavItem>
