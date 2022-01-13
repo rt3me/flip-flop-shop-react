@@ -12,6 +12,7 @@ const Header = () => {
 
   const logout = () => {
     localStorage.removeItem("auth");
+    setState(null);
     navigate("/login");
   };
 
@@ -53,7 +54,7 @@ const Header = () => {
                 </NavLink>
               </NavItem>
 
-              {isAuth() ? (
+              {state && state.token ? (
                 <li className="nav-item">
                   <span className="nav-link" onClick={logout}>
                     <i className="fa fa-sign-in fa-lg" /> Username / Logout
