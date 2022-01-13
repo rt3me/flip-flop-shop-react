@@ -19,18 +19,6 @@ class Header extends Component {
 
   navigate = useNavigate();
 
-  handleLogin(event) {
-    alert(`Username: ${this.username.value} Password: ${this.password.value} Remember: ${this.remember.checked}`);
-    this.toggleModal();
-    event.preventDefault();
-  }
-
-  toggleModal() {
-    this.setState({
-      isModalOpen: !this.state.isModalOpen,
-    });
-  }
-
   toggleNav() {
     this.setState({
       isNavOpen: !this.state.isNavOpen,
