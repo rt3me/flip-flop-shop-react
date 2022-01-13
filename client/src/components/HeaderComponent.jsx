@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from "reactstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { isAuth } from "../utils/functions";
 
 class Header extends Component {
   constructor(props) {
@@ -72,11 +73,17 @@ class Header extends Component {
                 </NavItem>
                 <NavItem>
                   <NavLink className="nav-link" to="/login">
-                    <span className="navbar-text ml-auto">
-                      <Button outline>
-                        <i className="fa fa-sign-in fa-lg" /> Login
-                      </Button>
-                    </span>
+                    <i className="fa fa-sign-in fa-lg" /> Register
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/login">
+                    <i className="fa fa-sign-in fa-lg" /> Login
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/login">
+                    <i className="fa fa-sign-in fa-lg" /> Username / Logout
                   </NavLink>
                 </NavItem>
               </Nav>
