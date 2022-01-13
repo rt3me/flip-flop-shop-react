@@ -64,7 +64,7 @@ const Login = () => {
             </InputGroup>
             <br />
             <Button onClick={handleClick} color="primary">
-              Register
+              Login
             </Button>
           </Form>
           <br />
