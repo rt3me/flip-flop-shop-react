@@ -11,8 +11,8 @@ const Header = () => {
   const navigate = useNavigate();
 
   const logout = () => {
+    setState({ user: {}, token: "" });
     localStorage.removeItem("auth");
-    setState(null);
     navigate("/login");
   };
 
