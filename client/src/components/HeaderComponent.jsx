@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from "reactstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { isAuth } from "../utils/functions";
 
-function Header(props) {
+const Header = () => {
+  const [navOpen, setNavOpen] = useState("");
+
   function constructor(props) {
     this.state = {
       isNavOpen: false,
@@ -18,9 +20,7 @@ function Header(props) {
   const navigate = useNavigate();
 
   function toggleNav() {
-    this.setState({
-      isNavOpen: !this.state.isNavOpen,
-    });
+    setNavOpen(!navOpen);
   }
 
   return (
@@ -40,8 +40,8 @@ function Header(props) {
           <NavbarBrand className="mr-auto" href="/">
             <img src="/assets/images/logo.png" height="30" width="30" alt="NuCamp Logo" />
           </NavbarBrand>
-          <NavbarToggler onClick={this.toggleNav} />
-          <Collapse isOpen={this.state.isNavOpen} navbar>
+          <NavbarToggler onClick={() => setNavOpen(!navOpen)} />
+          <Collapse isOpen={navOpen} navbar>
             <Nav navbar>
               <NavItem>
                 <NavLink className="nav-link" to="/">
@@ -111,6 +111,6 @@ function Header(props) {
       </Modal>
     </React.Fragment>
   );
-}
+};
 
 export default Header;
