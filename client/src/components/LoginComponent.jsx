@@ -25,8 +25,9 @@ const Login = () => {
       } else {
         setEmail("");
         setPassword("");
+        localStorage.setItem("auth", JSON.stringify(data));
+        navigate("/");
       }
-      navigate("/");
     } catch (err) {
       console.log(err);
       toast.error("Something went wrong. Try again.");
