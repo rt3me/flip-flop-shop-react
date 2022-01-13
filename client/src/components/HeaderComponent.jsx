@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from "reactstrap";
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem } from "reactstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { isAuth } from "../utils/functions";
 
