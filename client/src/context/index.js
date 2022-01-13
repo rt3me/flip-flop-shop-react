@@ -18,5 +18,7 @@ const UserProvider = ({ children }) => {
   axios.defaults.baseURL = process.env.REACT_APP_API;
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-  return <UserContext.Provider>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={[state, setState]}>{children}</UserContext.Provider>;
 };
+
+export { UserContext, UserProvider };
