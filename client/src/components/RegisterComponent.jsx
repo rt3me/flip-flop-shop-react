@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Breadcrumb, BreadcrumbItem, Form, InputGroup, InputGroupText, Input, Button } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { UserContext } from "../context";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [state, setState] = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -28,6 +30,7 @@ const Register = () => {
         setName("");
         setEmail("");
         setPassword("");
+        setState(data);
         toast.success(`Hello, ${data.user.name}. Thanks for joining!`);
         localStorage.setItem("auth", JSON.stringify(data));
         navigate("/");
