@@ -1,7 +1,7 @@
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from "reactstrap";
 import { baseUrl } from "../shared/baseUrl";
 
-const CardComponent = ({ cardImage = "/images/redux-woods.jpg", cardBodyTitle = "Frugal", cardBodySubtitle = "$10/mo", cardBodyText = "Example card body text, example card body text, example card body text", buttonText = "Sign Up" }) => {
+const CardComponent = ({ cardImage = "/images/redux-woods.jpg", cardBodyTitle = "Frugal", cardBodySubtitle = "$10/mo", cardBodyText, buttonText = "Sign Up", outline }) => {
   return (
     <Card className="mb-5 mb-md-0">
       <CardImg src={baseUrl + cardImage} alt={cardBodyTitle} />
