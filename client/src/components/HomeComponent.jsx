@@ -1,26 +1,9 @@
 import React from "react";
 import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 import { Loading } from "./LoadingComponent";
+import PageSectionLayout from "./PageSectionLayout";
 import { baseUrl } from "../shared/baseUrl";
 import { FadeTransform } from "react-animation-components";
-
-const PageSectionLayout = ({ sectionTitle = "Page Section Title", sectionSubtitle = "Example section subtitle with medium length text here", children }) => {
-  return (
-    <div className="container-fluid d-flex justify-content-center pt-5 pb-4">
-      <div className="container">
-        <div className="row col-md-6 offset-md-3 text-center">
-          <h2 className="fw-bold">{sectionTitle}</h2>
-          <p className="lead pb-4">{sectionSubtitle}</p>
-        </div>
-        <div className="row mb-4 text-center">
-          {React.Children.map(children, (child) => {
-            return <div className="col-md">{child}</div>;
-          })}
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const CardComponent = ({ cardImage = "/images/redux-woods.jpg", cardName = "BASIC", cardDescription = "Default description" }) => {
   return (
