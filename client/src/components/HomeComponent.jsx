@@ -14,7 +14,7 @@ const PageSectionLayout = ({ sectionTitle = "Page Section", sectionSubtitle = "S
         </div>
         <div className="row pt-5 mb-3 text-center">
           {React.Children.map(children, (child) => {
-            return <div className="col">{child}</div>;
+            return <div className="col-md">{child}</div>;
           })}
         </div>
       </div>
