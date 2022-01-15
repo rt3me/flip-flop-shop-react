@@ -2,20 +2,9 @@ import React from "react";
 import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 import { Loading } from "./LoadingComponent";
 import PageSectionLayout from "./PageSectionLayout";
+import CardComponent from "./CardComponent";
 import { baseUrl } from "../shared/baseUrl";
 import { FadeTransform } from "react-animation-components";
-
-const CardComponent = ({ cardImage = "/images/redux-woods.jpg", cardName = "BASIC", cardDescription = "Default description" }) => {
-  return (
-    <Card className="mb-5 mb-md-0">
-      <CardImg src={baseUrl + cardImage} alt={cardName} />
-      <CardBody>
-        <CardTitle>{cardName}</CardTitle>
-        <CardText>{cardDescription}</CardText>
-      </CardBody>
-    </Card>
-  );
-};
 
 function RenderCard({ item, isLoading, errMess }) {
   if (isLoading) {
