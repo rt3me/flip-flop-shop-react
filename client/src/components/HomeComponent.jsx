@@ -6,13 +6,13 @@ import { FadeTransform } from "react-animation-components";
 
 const PageSectionLayout = ({ sectionTitle = "Page Section", sectionSubtitle = "Section subtitle more of a long form kind of a thing", children }) => {
   return (
-    <div className="container-fluid d-flex justify-content-center">
+    <div className="container-fluid d-flex justify-content-center pt-5 pb-4">
       <div className="container">
         <div className="row col-md-6 offset-md-3 text-center">
-          <h2 className="pt-5 fw-bold">{sectionTitle}</h2>
+          <h2 className="fw-bold">{sectionTitle}</h2>
           <p className="lead pb-4">{sectionSubtitle}</p>
         </div>
-        <div className="row pt-5 mb-3 text-center">
+        <div className="row mb-4 text-center">
           {React.Children.map(children, (child) => {
             return <div className="col-md">{child}</div>;
           })}
