@@ -4,6 +4,18 @@ import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
 import { FadeTransform } from "react-animation-components";
 
+const CardComponent = ({ cardImage = "/images/redux-woods.jpg", cardName = "BASIC", cardDescription = "Default description" }) => {
+  return (
+    <Card>
+      <CardImg src={baseUrl + cardImage} alt={cardName} />
+      <CardBody>
+        <CardTitle>{cardName}</CardTitle>
+        <CardText>{cardDescription}</CardText>
+      </CardBody>
+    </Card>
+  );
+};
+
 function RenderCard({ item, isLoading, errMess }) {
   if (isLoading) {
     return <Loading />;
@@ -31,19 +43,26 @@ function RenderCard({ item, isLoading, errMess }) {
 
 function Home(props) {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="m-1 col-md">
-          <RenderCard item={props.campsite} isLoading={props.campsitesLoading} errMess={props.campsitesErrMess} />
-        </div>
-        <div className="m-1 col-md">
-          <RenderCard item={props.promotion} isLoading={props.promotionLoading} errMess={props.promotionErrMess} />
-        </div>
-        <div className="m-1 col-md">
-          <RenderCard item={props.partner} isLoading={props.partnerLoading} errMess={props.partnerErrMess} />
+    <React.Fragment>
+      <PageSectionLayout sectionTitle={"Check out our plans"} sectionSubtitle={"Choose the plan that gives you just the right amount of flip flop!"}>
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+      </PageSectionLayout>
+      <div className="container">
+        <div className="row">
+          <div className="m-1 col-md">
+            <RenderCard item={props.campsite} isLoading={props.campsitesLoading} errMess={props.campsitesErrMess} />
+          </div>
+          <div className="m-1 col-md">
+            <RenderCard item={props.promotion} isLoading={props.promotionLoading} errMess={props.promotionErrMess} />
+          </div>
+          <div className="m-1 col-md">
+            <RenderCard item={props.partner} isLoading={props.partnerLoading} errMess={props.partnerErrMess} />
+          </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 
