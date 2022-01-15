@@ -1,7 +1,7 @@
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap";
 import { baseUrl } from "../shared/baseUrl";
 
-const CardComponent = ({ cardImage = "/images/redux-woods.jpg", cardBodyTitle = "CARD TITLE", cardBodySubtitle = "Default description" }) => {
+const CardComponent = ({ cardImage = "/images/redux-woods.jpg", cardBodyTitle = "Frugal", cardBodySubtitle = "$10/mo", cardBodyText = "Example card body text, example card body text, example card body text" }) => {
   return (
     <Card className="mb-5 mb-md-0">
       <CardImg src={baseUrl + cardImage} alt={cardBodyTitle} />
@@ -10,7 +10,7 @@ const CardComponent = ({ cardImage = "/images/redux-woods.jpg", cardBodyTitle = 
         <CardSubtitle tag="h4" className="mb-2 text-muted">
           {cardBodySubtitle}
         </CardSubtitle>
-        <CardText>{cardDescription}</CardText>
+        <CardText>{cardBodyText}</CardText>
       </CardBody>
     </Card>
   );
