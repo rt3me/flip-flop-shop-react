@@ -4,7 +4,7 @@ import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
 import { FadeTransform } from "react-animation-components";
 
-const PageSectionLayout = ({ sectionTitle = "Page Section", sectionSubtitle = "Section subtitle more of a long form kind of a thing", children }) => {
+const PageSectionLayout = ({ sectionTitle = "Page Section Title", sectionSubtitle = "Example section subtitle with medium length text here", children }) => {
   return (
     <div className="container-fluid d-flex justify-content-center pt-5 pb-4">
       <div className="container">
