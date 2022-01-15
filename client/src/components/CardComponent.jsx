@@ -11,7 +11,7 @@ const CardComponent = ({ cardImage = "/images/redux-woods.jpg", cardBodyTitle = 
           {cardBodySubtitle}
         </CardSubtitle>
         <CardText>{cardBodyText}</CardText>
-        <Button>{buttonText}</Button>
+        <Button color="primary">{buttonText}</Button>
       </CardBody>
     </Card>
   );
