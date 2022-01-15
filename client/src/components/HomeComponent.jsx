@@ -4,6 +4,24 @@ import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
 import { FadeTransform } from "react-animation-components";
 
+const PageSectionLayout = ({ sectionTitle = "Page Section", sectionSubtitle = "Section subtitle more of a long form kind of a thing", children }) => {
+  return (
+    <div className="container-fluid d-flex justify-content-center">
+      <div className="container">
+        <div className="row col-md-6 offset-md-3 text-center">
+          <h1 className="pt-5 fw-bold">{sectionTitle}</h1>
+          <p className="lead pb-4">{sectionSubtitle}</p>
+        </div>
+        <div className="row pt-5 mb-3 text-center">
+          {React.Children.map(children, (child) => {
+            return <div className="col">{child}</div>;
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const CardComponent = ({ cardImage = "/images/redux-woods.jpg", cardName = "BASIC", cardDescription = "Default description" }) => {
   return (
     <Card>
