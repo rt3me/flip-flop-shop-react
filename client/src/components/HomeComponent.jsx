@@ -24,7 +24,7 @@ const PageSectionLayout = ({ sectionTitle = "Page Section", sectionSubtitle = "S
 
 const CardComponent = ({ cardImage = "/images/redux-woods.jpg", cardName = "BASIC", cardDescription = "Default description" }) => {
   return (
-    <Card>
+    <Card className="mb-5 mb-md-0">
       <CardImg src={baseUrl + cardImage} alt={cardName} />
       <CardBody>
         <CardTitle>{cardName}</CardTitle>
