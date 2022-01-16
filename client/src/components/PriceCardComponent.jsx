@@ -1,9 +1,16 @@
+import React, { useContext } from "react";
+import { UserContext } from "../context";
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from "reactstrap";
 import { Link } from "react-router-dom";
-import { baseUrl } from "../shared/baseUrl";
 
 const CardComponent = ({ price, handleSubscription, outline }) => {
+  const [state] = useContext(UserContext);
+
   console.log("Price logged here:", price);
+
+  const buttonText = () => {
+    return state && state.token ? "Subscribe" : "Sign Up";
+  };
 
   return (
     <div className="col-md">
@@ -19,7 +26,7 @@ const CardComponent = ({ price, handleSubscription, outline }) => {
             <small className="text-muted fw-light">/mo</small>
           </CardSubtitle>
           <Link to="/register">
-            <Button color="primary" /* onClick={() => handleSubscription(price)} */>Sign Up</Button>
+            <Button color="primary" /* onClick={() => handleSubscription(price)} */>{buttonText()}</Button>
           </Link>
         </CardBody>
       </Card>
