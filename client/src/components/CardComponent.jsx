@@ -10,7 +10,11 @@ const CardComponent = ({ price, handleClick, outline }) => {
       <CardBody>
         <CardTitle tag="h3">{price.nickname}</CardTitle>
         <CardSubtitle tag="h4" className="mb-2 text-muted">
-          {price.unit_amount}
+          {(price.unit_amount / 100).toLocaleString("en-US", {
+            style: "currency",
+            currency: "USD",
+          })}
+          <small className="text-muted fw-light">/mo</small>
         </CardSubtitle>
         <Button color="primary" onClick={handleClick}>
           Sign Up
