@@ -33,7 +33,7 @@ function RenderCard({ item, isLoading, errMess }) {
 }
 
 function Home(props) {
-  const [prices, setPrices] = useState();
+  const [prices, setPrices] = useState([]);
 
   useEffect(() => {
     fetchPrices();
