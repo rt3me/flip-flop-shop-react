@@ -13,7 +13,26 @@ function Home(props) {
   const fetchPrices = async () => {
     const { data } = await axios.get("/prices");
     console.log("Prices get request:", data);
-    setPrices(data);
+    setPrices(
+      data
+        .sort((a, b) => a.unit_amount - b.unit_amount)
+        .map((price) => {
+          let imageURL = "";
+          switch (price.nickname) {
+            case "Frugal":
+              imageURL = "../../images/flip-flop-frugal.svg";
+              break;
+            case "Fun Loving":
+              imageURL = "../../images/flip-flop-fun-loving.svg";
+              break;
+            case "Fancy Pants":
+              imageURL = "../../images/flip-flop-fancy-pants.svg";
+              break;
+            default:
+          }
+          return { ...price, image: imageURL };
+        })
+    );
   };
 
   const handleClick = async (e) => {
@@ -24,10 +43,12 @@ function Home(props) {
   return (
     <React.Fragment>
       <PageSectionLayout sectionTitle={"Check out our plans"} sectionSubtitle={"Choose the plan that gives you just the right amount of flip flop!"}>
-        {prices && prices.map((price) => <CardComponent key={price.id} price={price} handleClick={handleClick} />)}
-        <CardComponent cardImage="../../images/flip-flop-frugal.svg" cardBodyTitle="Frugal" cardBodySubtitle="$5/mo" buttonText="Sign Up" />
-        <CardComponent cardImage="../../images/flip-flop-fun-loving.svg" cardBodyTitle="Fun Loving" cardBodySubtitle="$10/mo" buttonText="Sign Up" />
-        <CardComponent cardImage="../../images/flip-flop-fancy-pants.svg" cardBodyTitle="Fancy Pants" cardBodySubtitle="$15/mo" buttonText="Sign Up" />
+        {prices &&
+          prices.map((price) => (
+            <div className="col-md">
+              <CardComponent key={price.id} price={price} handleClick={handleClick} />
+            </div>
+          ))}
       </PageSectionLayout>
     </React.Fragment>
   );
