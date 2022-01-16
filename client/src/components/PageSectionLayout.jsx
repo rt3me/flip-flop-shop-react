@@ -8,11 +8,7 @@ const PageSectionLayout = ({ sectionTitle = "Page Section Title", sectionSubtitl
           <h2 className="fw-bold">{sectionTitle}</h2>
           <p className="lead pb-4">{sectionSubtitle}</p>
         </div>
-        <div className="row mb-4 text-center">
-          {React.Children.map(children, (child) => {
-            return <div className="col-md">{child}</div>;
-          })}
-        </div>
+        <div className="row mb-4 text-center">{children}</div>
       </div>
     </div>
   );
