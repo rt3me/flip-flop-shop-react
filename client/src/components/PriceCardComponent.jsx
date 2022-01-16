@@ -24,9 +24,11 @@ const CardComponent = ({ price, handleSubscription, outline }) => {
           })}
           <small className="text-muted fw-light">/mo</small>
         </CardSubtitle>
-        <Link to="/register">
-          <Button color="primary" /* onClick={() => handleSubscription(price)} */>{buttonText()}</Button>
-        </Link>
+        {/* <Link to="/register"> */}
+        <Button color="primary" onClick={() => handleSubscription(price)}>
+          {buttonText()}
+        </Button>
+        {/* </Link> */}
       </CardBody>
     </Card>
   );
