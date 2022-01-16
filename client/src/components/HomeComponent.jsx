@@ -37,7 +37,7 @@ function Home(props) {
 
   const handleClick = async (e, price) => {
     e.preventDefault();
-    console.log("Plan clicked, price.id:", price.id);
+    // console.log("Plan clicked, price.id:", price.id);
   };
 
   return (
