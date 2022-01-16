@@ -37,12 +37,32 @@ function Home(props) {
 
   useEffect(() => {
     fetchPrices();
+    addImages();
   }, []);
 
   const fetchPrices = async () => {
     const { data } = await axios.get("/prices");
     console.log("Prices get request:", data);
     setPrices(data);
+  };
+
+  const addImages = () => {
+    setPrices(
+      prices.map((price) => {
+        switch (price.nickname) {
+          case "Frugal":
+            price.image = "../../images/flip-flop-frugal.svg";
+            break;
+          case "Fun Loving":
+            price.image = "../../images/flip-flop-fun-loving.svg";
+            break;
+          case "Fancy Pants":
+            price.image = "../../images/flip-flop-fancy-pants.svg";
+            break;
+          default:
+        }
+      })
+    );
   };
 
   const handleClick = async (e) => {
