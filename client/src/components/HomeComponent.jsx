@@ -46,7 +46,7 @@ function Home(props) {
         {prices &&
           prices.map((price) => (
             <div key={price.id} className="col-md">
-              <PriceCardComponent price={price} handleClick={handleClick} />
+              <PriceCardComponent price={price} handleSubscription={handleClick} />
             </div>
           ))}
       </PageSectionLayout>
