@@ -41,6 +41,7 @@ function Home(props) {
       console.log("Prices get request:", data);
       setPrices(data);
     };
+    fetchPrices();
   }, []);
 
   return (
