@@ -19,6 +19,8 @@ const userSchema = new Schema({
     min: 8,
     max: 25,
   },
+  stripe_customer_id: String,
+  subscriptions: [],
 });
 
 export default mongoose.model("User", userSchema);
