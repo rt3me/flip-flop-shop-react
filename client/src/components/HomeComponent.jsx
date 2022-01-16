@@ -33,6 +33,8 @@ function RenderCard({ item, isLoading, errMess }) {
 }
 
 function Home(props) {
+  const [prices, setPrices] = useState();
+
   useEffect(() => {
     const fetchPrices = async () => {
       const { data } = await axios.get("/prices");
