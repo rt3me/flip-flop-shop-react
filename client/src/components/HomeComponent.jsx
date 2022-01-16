@@ -45,6 +45,11 @@ function Home(props) {
     setPrices(data);
   };
 
+  handleClick = async (e) => {
+    e.preventDefault();
+    console.log("Plan clicked");
+  };
+
   return (
     <React.Fragment>
       <PageSectionLayout sectionTitle={"Check out our plans"} sectionSubtitle={"Choose the plan that gives you just the right amount of flip flop!"}>
