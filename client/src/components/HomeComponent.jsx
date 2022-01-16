@@ -43,12 +43,7 @@ function Home(props) {
   return (
     <React.Fragment>
       <PageSectionLayout sectionTitle={"Check out our plans"} sectionSubtitle={"Choose the plan that gives you just the right amount of flip flop!"}>
-        {prices &&
-          prices.map((price) => (
-            <div className="col-md">
-              <CardComponent key={price.id} price={price} handleClick={handleClick} />
-            </div>
-          ))}
+        {prices && prices.map((price) => <CardComponent key={price.id} price={price} handleClick={handleClick} />)}
       </PageSectionLayout>
     </React.Fragment>
   );
