@@ -45,7 +45,7 @@ function Home(props) {
     setPrices(data);
   };
 
-  handleClick = async (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
     console.log("Plan clicked");
   };
