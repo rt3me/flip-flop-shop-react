@@ -36,6 +36,8 @@ function Home(props) {
   useEffect(() => {
     const fetchPrices = async () => {
       const { data } = await axios.get("/prices");
+      console.log("Prices get request:", data);
+      setPrices(data);
     };
   }, []);
 
