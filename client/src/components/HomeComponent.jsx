@@ -36,13 +36,14 @@ function Home(props) {
   const [prices, setPrices] = useState();
 
   useEffect(() => {
-    const fetchPrices = async () => {
-      const { data } = await axios.get("/prices");
-      console.log("Prices get request:", data);
-      setPrices(data);
-    };
     fetchPrices();
   }, []);
+
+  const fetchPrices = async () => {
+    const { data } = await axios.get("/prices");
+    console.log("Prices get request:", data);
+    setPrices(data);
+  };
 
   return (
     <React.Fragment>
