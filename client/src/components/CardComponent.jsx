@@ -1,7 +1,7 @@
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from "reactstrap";
 import { baseUrl } from "../shared/baseUrl";
 
-const CardComponent = ({ price, handleClick, outline }) => {
+const CardComponent = ({ price, handleSubscription, outline }) => {
   console.log("Price logged here:", price);
 
   return (
@@ -16,7 +16,7 @@ const CardComponent = ({ price, handleClick, outline }) => {
           })}
           <small className="text-muted fw-light">/mo</small>
         </CardSubtitle>
-        <Button color="primary" onClick={handleClick}>
+        <Button color="primary" onClick={() => handleSubscription(price)}>
           Sign Up
         </Button>
       </CardBody>
