@@ -48,6 +48,7 @@ function Home(props) {
   return (
     <React.Fragment>
       <PageSectionLayout sectionTitle={"Check out our plans"} sectionSubtitle={"Choose the plan that gives you just the right amount of flip flop!"}>
+        {prices && prices.map((price) => <CardComponent key={price.id} cardBodyTitle={price.nickname} cardBodySubtitle={`$${price.unit_amount / 100}.00`} buttonText="Sign Up" handleClick={handleClick} />)}
         <CardComponent cardImage="../../images/flip-flop-frugal.svg" cardBodyTitle="Frugal" cardBodySubtitle="$5/mo" buttonText="Sign Up" />
         <CardComponent cardImage="../../images/flip-flop-fun-loving.svg" cardBodyTitle="Fun Loving" cardBodySubtitle="$10/mo" buttonText="Sign Up" />
         <CardComponent cardImage="../../images/flip-flop-fancy-pants.svg" cardBodyTitle="Fancy Pants" cardBodySubtitle="$15/mo" buttonText="Sign Up" />
