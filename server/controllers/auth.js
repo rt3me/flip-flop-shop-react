@@ -25,11 +25,19 @@ export const register = async (req, res) => {
     }
     // hash password
     const hashedPassword = await hashPassword(password);
+
+    // create account in Stripe
+    const customer = await stripe.customers.create({
+      email,
+    });
+    console.log("Stripe customer created on signup:", customer);
+
     try {
       const user = await new User({
         name,
         email,
         password: hashedPassword,
+        stripe_customer_id: customer.id,
       }).save();
 
       // create signed token
