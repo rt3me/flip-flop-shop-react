@@ -5,3 +5,7 @@ export const prices = async (req, res) => {
   console.log("prices", prices);
   res.json(prices.data);
 };
+
+export const createSubscription = async (req, res) => {
+  //
+};
