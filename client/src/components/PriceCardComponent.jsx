@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../context";
-import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Card, CardImg, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 
 const CardComponent = ({ price, handleSubscription, outline }) => {
   const [state] = useContext(UserContext);
