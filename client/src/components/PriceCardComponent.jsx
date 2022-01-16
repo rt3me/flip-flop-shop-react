@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const CardComponent = ({ price, handleSubscription, outline }) => {
   const [state] = useContext(UserContext);
 
-  console.log("Price logged here:", price);
+  // console.log("Price logged here:", price);
 
   const buttonText = () => {
     return state && state.token ? "Subscribe" : "Sign Up";
