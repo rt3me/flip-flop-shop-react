@@ -1,14 +1,16 @@
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from "reactstrap";
 import { baseUrl } from "../shared/baseUrl";
 
-const CardComponent = ({ handleClick, outline }) => {
+const CardComponent = ({ price, handleClick, outline }) => {
+  console.log("Price logged here:", price);
+
   return (
     <Card className={outline ? "mb-5 mb-md-0" : "mb-5 mb-md-0 border-0"}>
-      <CardImg src={cardImage} alt={cardBodyTitle} className="w-50 m-auto" />
+      <CardImg src={price.image} alt={price.nickname} className="w-50 m-auto" />
       <CardBody>
-        <CardTitle tag="h3">{cardBodyTitle}</CardTitle>
+        <CardTitle tag="h3">{price.nickname}</CardTitle>
         <CardSubtitle tag="h4" className="mb-2 text-muted">
-          {cardBodySubtitle}
+          {price.unit_amount}
         </CardSubtitle>
         <Button color="primary" onClick={handleClick}>
           Sign Up
