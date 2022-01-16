@@ -12,7 +12,7 @@ function Home(props) {
 
   const fetchPrices = async () => {
     const { data } = await axios.get("/prices");
-    console.log("Prices get request:", data);
+    // console.log("Prices get request:", data);
     setPrices(
       data
         .sort((a, b) => a.unit_amount - b.unit_amount)
