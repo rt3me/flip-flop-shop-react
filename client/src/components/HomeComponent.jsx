@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
+import axios from "axios";
 import { Loading } from "./LoadingComponent";
 import PageSectionLayout from "./PageSectionLayout";
 import CardComponent from "./CardComponent";
@@ -32,6 +33,12 @@ function RenderCard({ item, isLoading, errMess }) {
 }
 
 function Home(props) {
+  useEffect(() => {
+    const fetchPrices = async () => {
+      const { data } = await axios.get("/prices");
+    };
+  }, []);
+
   return (
     <React.Fragment>
       <PageSectionLayout sectionTitle={"Check out our plans"} sectionSubtitle={"Choose the plan that gives you just the right amount of flip flop!"}>
