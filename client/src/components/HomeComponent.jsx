@@ -37,32 +37,12 @@ function Home(props) {
 
   useEffect(() => {
     fetchPrices();
-    addImages();
   }, []);
 
   const fetchPrices = async () => {
     const { data } = await axios.get("/prices");
     console.log("Prices get request:", data);
     setPrices(data);
-  };
-
-  const addImages = () => {
-    setPrices(
-      prices.map((price) => {
-        switch (price.nickname) {
-          case "Frugal":
-            price.image = "../../images/flip-flop-frugal.svg";
-            break;
-          case "Fun Loving":
-            price.image = "../../images/flip-flop-fun-loving.svg";
-            break;
-          case "Fancy Pants":
-            price.image = "../../images/flip-flop-fancy-pants.svg";
-            break;
-          default:
-        }
-      })
-    );
   };
 
   const handleClick = async (e) => {
@@ -73,7 +53,26 @@ function Home(props) {
   return (
     <React.Fragment>
       <PageSectionLayout sectionTitle={"Check out our plans"} sectionSubtitle={"Choose the plan that gives you just the right amount of flip flop!"}>
-        {prices && prices.sort((a, b) => a.unit_amount - b.unit_amount).map((price) => <CardComponent key={price.id} price={price} handleClick={handleClick} />)}
+        {prices &&
+          prices
+            .sort((a, b) => a.unit_amount - b.unit_amount)
+            .map((price) => {
+              let cardImage = "";
+              switch (price.nickname) {
+                case "Frugal":
+                  cardImage = "../../images/flip-flop-frugal.svg";
+                  break;
+                case "Fun Loving":
+                  cardImage = "../../images/flip-flop-fun-loving.svg";
+                  break;
+                case "Fancy Pants":
+                  cardImage = "../../images/flip-flop-fancy-pants.svg";
+                  break;
+                default:
+              }
+              return { ...price, image: cardImage };
+            })
+            .map((price) => <CardComponent key={price.id} price={price} handleClick={handleClick} />)}
         <CardComponent cardImage="../../images/flip-flop-frugal.svg" cardBodyTitle="Frugal" cardBodySubtitle="$5/mo" buttonText="Sign Up" />
         <CardComponent cardImage="../../images/flip-flop-fun-loving.svg" cardBodyTitle="Fun Loving" cardBodySubtitle="$10/mo" buttonText="Sign Up" />
         <CardComponent cardImage="../../images/flip-flop-fancy-pants.svg" cardBodyTitle="Fancy Pants" cardBodySubtitle="$15/mo" buttonText="Sign Up" />
