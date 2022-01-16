@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem } from "reactstrap";
 import { NavLink, useNavigate } from "react-router-dom";
-import { isAuth } from "../utils/functions";
 import { UserContext } from "../context";
 
 const Header = () => {
