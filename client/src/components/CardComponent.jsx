@@ -1,4 +1,5 @@
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from "reactstrap";
+import { Link } from "react-router-dom";
 import { baseUrl } from "../shared/baseUrl";
 
 const CardComponent = ({ price, handleSubscription, outline }) => {
@@ -16,9 +17,9 @@ const CardComponent = ({ price, handleSubscription, outline }) => {
           })}
           <small className="text-muted fw-light">/mo</small>
         </CardSubtitle>
-        <Button color="primary" onClick={() => handleSubscription(price)}>
-          Sign Up
-        </Button>
+        <Link to="/register">
+          <Button color="primary" /* onClick={() => handleSubscription(price)} */>Sign Up</Button>
+        </Link>
       </CardBody>
     </Card>
   );
