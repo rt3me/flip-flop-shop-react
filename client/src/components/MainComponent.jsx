@@ -8,6 +8,8 @@ import Contact from "./ContactComponent";
 import About from "./AboutComponent";
 import Login from "./LoginComponent";
 import Register from "./RegisterComponent";
+import CheckoutSuccess from "./CheckoutSuccessComponent";
+import CheckoutCancel from "./CheckoutCancelComponent";
 
 class Main extends Component {
   render() {
@@ -26,6 +28,8 @@ class Main extends Component {
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="checkout/success" element={<CheckoutSuccess />} />
+          <Route path="checkout/cancel" element={<CheckoutCancel />} />
         </Routes>
         <Footer />
       </div>
