@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem } from "reactstrap";
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, NavbarText, DropdownItem, UncontrolledDropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../context";
 
@@ -29,30 +29,34 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <Navbar dark sticky="top" expand="md">
-        <div className="container">
-          <NavbarBrand className="mr-auto" href="/">
-            <img src="/assets/images/logo.png" height="30" width="30" alt="NuCamp Logo" />
-          </NavbarBrand>
+      <div>
+        <Navbar color="primary" container="lg" expand="md" light>
+          <NavbarBrand href="/">Flip Flop Surf Shop</NavbarBrand>
           <NavbarToggler onClick={() => setNavOpen(!navOpen)} />
-          <Collapse isOpen={navOpen} navbar>
-            <Nav navbar>
+          <Collapse navbar>
+            <Nav className="me-auto" navbar>
               <NavItem>
-                <NavLink className="nav-link" to="/">
-                  <i className="fa fa-home fa-lg" /> Home
-                </NavLink>
+                <NavLink to="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to="/about">
-                  <i className="fa fa-info fa-lg" /> About
-                </NavLink>
+                <NavLink to="/about">About</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to="/contact">
-                  <i className="fa fa-address-card fa-lg" /> Contact Us
-                </NavLink>
+                <NavLink to="/contact">Contact Us</NavLink>
               </NavItem>
-
+              <UncontrolledDropdown inNavbar nav>
+                <DropdownToggle caret nav>
+                  Options
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>Option 1</DropdownItem>
+                  <DropdownItem>Option 2</DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>Reset</DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+            <NavbarText>
               {state && state.token ? (
                 <li className="nav-item">
                   <span className="nav-link" onClick={logout}>
@@ -73,10 +77,10 @@ const Header = () => {
                   </NavItem>
                 </React.Fragment>
               )}
-            </Nav>
+            </NavbarText>
           </Collapse>
-        </div>
-      </Navbar>
+        </Navbar>
+      </div>
     </React.Fragment>
   );
 };
