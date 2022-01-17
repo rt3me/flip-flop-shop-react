@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from "../context";
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 
-const CardComponent = ({ price, handleSubscription, outline }) => {
+const CardComponent = ({ price, handleSubscription, outline, userSubscriptions }) => {
   const [state] = useContext(UserContext);
 
   // console.log("Price logged here:", price);
@@ -25,7 +25,7 @@ const CardComponent = ({ price, handleSubscription, outline }) => {
         </CardSubtitle>
         {/* <Link to="/register"> */}
         <Button color="primary" onClick={(e) => handleSubscription(e, price)}>
-          {buttonText()}
+          {userSubscriptions && userSubscriptions.includes(price.id) ? "My Plan" : buttonText()}
         </Button>
         {/* </Link> */}
       </CardBody>
