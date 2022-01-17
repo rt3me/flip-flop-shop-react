@@ -50,6 +50,9 @@ class Main extends Component {
             }
           />
           <Route path="/account" element={<Account />} />
+          <Route path="/frugal" element={<FrugalPlan />} />
+          <Route path="/funloving" element={<FunLovingPlan />} />
+          <Route path="/fancypants" element={<FancyPantsPlan />} />
         </Routes>
         <Footer />
       </div>
