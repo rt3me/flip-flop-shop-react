@@ -24,7 +24,6 @@ const Account = ({ history }) => {
         <UserOutlined className="display-4" />
         <h1>Account</h1>
         <p className="lead pb-4">Subscription status</p>
-        {/* <pre>{JSON.stringify(subscriptions, null, 4)}</pre> */}
       </div>
 
       <div className="row">
@@ -40,12 +39,12 @@ const Account = ({ history }) => {
                     currency: sub.plan.currency,
                   })}
                 </h5>
-                <p>Status: {sub.status}</p>
-                <p>Card last 4 digit: {sub.default_payment_method.card.last4}</p>
+                <p>Subscription status: {sub.status}</p>
+                <p>Last 4 digits of card: {sub.default_payment_method.card.last4}</p>
                 <p>
                   Current period end:{" "}
                   {moment(sub.current_period_end * 1000)
-                    .format("dddd, MMMM Do YYYY h:mm:ss a")
+                    .format("dddd, MMMM Do YYYY")
                     .toString()}
                 </p>
                 <button className="btn btn-outline-danger">Access</button> <button className="btn btn-outline-warning">Manage Subscription</button>
