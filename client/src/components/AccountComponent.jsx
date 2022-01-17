@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { UserContext } from "../context";
@@ -7,6 +8,8 @@ import moment from "moment";
 const Account = ({ history }) => {
   const [state, setState] = useContext(UserContext);
   const [subscriptions, setSubscriptions] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getSubscriptions = async () => {
@@ -47,7 +50,10 @@ const Account = ({ history }) => {
                     .format("dddd, MMMM Do YYYY")
                     .toString()}
                 </p>
-                <button className="btn btn-outline-danger">Access</button> <button className="btn btn-outline-warning">Manage Subscription</button>
+                <button onClick={() => navigate(`/${sub.plan.nickname.toLowerCase()}`)} className="btn btn-outline-danger">
+                  Access Subscription
+                </button>{" "}
+                <button className="btn btn-outline-warning">Manage Subscription</button>
               </section>
             </div>
           ))}
