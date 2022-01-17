@@ -1,15 +1,13 @@
-import React, { useContext } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context";
 
-const AuthRoute = ({ ...rest }) => {
+const RequireAuth = ({ ...rest }) => {
   const [state, setState] = useContext(UserContext);
 
-  if (!state) {
-    return <Redirect to="/login" />;
-  }
+  const navigate = useNavigate();
 
-  return state && state.token ? <Route {...rest} /> : "";
+  return state === true ? children : navigate("/login");
 };
 
-export default AuthRoute;
+export default RequireAuth;
