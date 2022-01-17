@@ -1,19 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { SyncOutlined } from "@ant-design/icons";
 import { UserContext } from "../context";
 
-const CheckoutSuccess = ({ history }) => {
+const CheckoutSuccess = () => {
   const [state, setState] = useContext(UserContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getSubscriptionStatus = async () => {
       const { data } = await axios.get("/subscription-status");
       console.log("SUBSCRIPTION STATUS => ", data);
       if (data && data.length === 0) {
-        history.push("/");
+        navigate("/");
       } else {
-        history.push("/account");
+        navigate("/account");
       }
     };
 
