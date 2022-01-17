@@ -2,10 +2,11 @@ import express from "express";
 
 const router = express.Router();
 
-import { prices, createSubscription } from "../controllers/subs";
+import { prices, createSubscription, subscriptionStatus } from "../controllers/subs";
 import { requireSignin } from "../middlewares";
 
 router.get("/prices", prices);
 router.post("/create-subscription", requireSignin, createSubscription);
+router.post("/subscription-status", requireSignin, subscriptionStatus);
 
 module.exports = router;
