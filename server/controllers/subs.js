@@ -33,7 +33,9 @@ export const createSubscription = async (req, res) => {
 };
 
 export const subscriptionStatus = async (req, res) => {
+  console.log("About to try in subscriptionStatus controller");
   try {
+    console.log("Trying in subscriptionStatus controller");
     const user = await User.findById(req.user._id);
 
     const subscriptions = await stripe.subscriptions.list({
