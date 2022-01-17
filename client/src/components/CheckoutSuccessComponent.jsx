@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { UserContext } from "../context";
 
-const Register = () => {
+const StripeSuccess = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -94,4 +94,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default StripeSuccess;
