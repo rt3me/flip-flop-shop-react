@@ -1,4 +1,4 @@
-# Flip Flop Shop React
+# Flip Flop Surf Shop React
 
 * Flip Flop store e-commerce project built with React
 * HTML Bootstrap version: https://github.com/rt3me/flip-flop-shop
