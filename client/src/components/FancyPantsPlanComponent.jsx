@@ -28,8 +28,8 @@ const FancyPantsPlan = ({ match }) => {
     <React.Fragment>
       <div className="container-fluid">
         <div className="row py-5 bg-light text-center">
-          <h1 className="display-4 fw-bold">Frugal</h1>
-          <p className="lead">Flip flops for the frugal man</p>
+          <h1 className="display-4 fw-bold">Fancy Pants</h1>
+          <p className="lead">Flip flops for the fancy pants man</p>
         </div>
       </div>
 
@@ -37,11 +37,11 @@ const FancyPantsPlan = ({ match }) => {
         <div className="row">
           <div className="col-md-8 p-5 rounded bg-dark text-light">
             <ul className="lead">
-              <li>Good looks built-in</li>
-              <li>Jealous looks from the over-spenders</li>
-              <li>Good times all-around</li>
-              <li>Plenty more good times with the bucks you saved</li>
-              <li>What's next?</li>
+              <li>When sandals just won't do</li>
+              <li>Make 'em roll their eyes</li>
+              <li>Intersection of beach house and steak house road</li>
+              <li>You will not be outdone</li>
+              <li>Does it get any better?</li>
             </ul>
           </div>
         </div>

@@ -29,7 +29,7 @@ const FrugalPlan = ({ match }) => {
       <div className="container-fluid">
         <div className="row py-5 bg-light text-center">
           <h1 className="display-4 fw-bold">Frugal</h1>
-          <p className="lead">Flip flops for the frugal man</p>
+          <p className="lead">Flip flops for the frugal guy</p>
         </div>
       </div>
 
