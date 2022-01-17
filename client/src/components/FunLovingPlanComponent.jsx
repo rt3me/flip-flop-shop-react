@@ -1,8 +1,10 @@
-import React, { Fragment, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context";
 
-const Standard = ({ history, match }) => {
+const FunLovingPlan = ({ match }) => {
   const [state, setState] = useContext(UserContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let result = [];
@@ -18,18 +20,16 @@ const Standard = ({ history, match }) => {
     // console.log("MATCH", match);
     const plan = match.path.split("/")[1].toUpperCase(); // basic
     if (!result.includes(plan)) {
-      history.push("/");
+      navigate("/");
     }
   }, [state && state.user]);
 
   return (
-    <Fragment>
+    <React.Fragment>
       <div className="container-fluid">
         <div className="row py-5 bg-light text-center">
-          <h1 className="display-4 fw-bold">STANDARD</h1>
-          <p className="lead">
-            Here are your 10 exclusive stocks of this month
-          </p>
+          <h1 className="display-4 fw-bold">Frugal</h1>
+          <p className="lead">Flip flops for the frugal man</p>
         </div>
       </div>
 
@@ -37,36 +37,17 @@ const Standard = ({ history, match }) => {
         <div className="row">
           <div className="col-md-8 p-5 rounded bg-dark text-light">
             <ul className="lead">
-              <li>Tesla</li>
-              <li>Microsoft</li>
-              <li>PayPal</li>
-              <li>Square</li>
-              <li>Alibaba</li>
-              <li>Gamestop</li>
-              <li>Jumia</li>
-              <li>Palantir</li>
-              <li>Nio</li>
-              <li>Space</li>
+              <li>Good looks built-in</li>
+              <li>Jealous looks from the over-spenders</li>
+              <li>Good times all-around</li>
+              <li>Plenty more good times with the bucks you saved</li>
+              <li>What's next?</li>
             </ul>
-          </div>
-
-          <div className="col-md-4">
-            <h4>Market analysis</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Accusantium ratione pariatur ab unde voluptatem ea, quae veniam
-              aperiam sint porro aliquid animi eveniet, culpa id reiciendis vel
-              nihil veritatis qui.
-            </p>
-            <h4>Email support</h4>
-            <p>subscriptions@domain.com</p>
-            <h4>Help center</h4>
-            1300 123 456
           </div>
         </div>
       </div>
-    </Fragment>
+    </React.Fragment>
   );
 };
 
-export default Standard;
+export default FunLovingPlan;
