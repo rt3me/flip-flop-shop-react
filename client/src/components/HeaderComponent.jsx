@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, NavbarText, DropdownItem, UncontrolledDropdown, DropdownToggle, DropdownMenu } from "reactstrap";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink as RRNavLink, useNavigate } from "react-router-dom";
+import { NavLink, Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, NavbarText, DropdownItem, UncontrolledDropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 import { UserContext } from "../context";
 
 const Header = () => {
@@ -23,65 +23,64 @@ const Header = () => {
         <div className="container">
           <div className="row">
             <div className="col">
-              <h1>NuCamp</h1>
-              <h2>a better way to camp</h2>
+              <h1>Flip Flop</h1>
+              <h2>a flippier way to flop</h2>
             </div>
           </div>
         </div>
       </div>
-      <Navbar color="primary" container="lg" expand="md" light>
+      <Navbar color="primary" container="sm" expand="md" light>
         <NavbarBrand href="/">Flip Flop Surf Shop</NavbarBrand>
         <NavbarToggler onClick={() => setNavOpen(!navOpen)} />
         <Collapse isOpen={navOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink className="nav-link" to="/">
+              <NavLink tag={RRNavLink} activeClassName="active" to="/">
                 Home
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="nav-link" to="/about">
+              <NavLink tag={RRNavLink} activeClassName="active" to="/about">
                 About
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="nav-link" to="/contact">
+              <NavLink tag={RRNavLink} activeClassName="active" to="/contact">
                 Contact Us
               </NavLink>
             </NavItem>
-            <UncontrolledDropdown inNavbar nav>
-              <DropdownToggle caret nav>
-                Options
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>Option 1</DropdownItem>
-                <DropdownItem>Option 2</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Reset</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-            <NavbarText>
-              {state && state.token ? (
-                <li className="nav-item">
-                  <span className="nav-link" onClick={logout}>
-                    Username / Logout
-                  </span>
-                </li>
-              ) : (
-                <React.Fragment>
-                  <NavItem>
-                    <NavLink className="nav-link" to="/register">
-                      Register
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink className="nav-link" to="/login">
-                      Login
-                    </NavLink>
-                  </NavItem>
-                </React.Fragment>
-              )}
-            </NavbarText>
+            {state && state.token ? (
+              <UncontrolledDropdown inNavbar nav>
+                <DropdownToggle caret nav>
+                  {state.user.email}
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>
+                    <NavItem>
+                      <NavLink tag={RRNavLink} to="/account">
+                        Account
+                      </NavLink>
+                    </NavItem>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavbarText onClick={logout}>Logout</NavbarText>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            ) : (
+              <React.Fragment>
+                <NavItem>
+                  <NavLink tag={RRNavLink} activeClassName="active" to="/login">
+                    Login
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={RRNavLink} activeClassName="active" to="/register">
+                    Register
+                  </NavLink>
+                </NavItem>
+              </React.Fragment>
+            )}
           </Nav>
         </Collapse>
       </Navbar>
