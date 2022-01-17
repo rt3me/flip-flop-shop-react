@@ -8,12 +8,26 @@ import PriceCardComponent from "./PriceCardComponent";
 function Home(props) {
   const [state, setState] = useContext(UserContext);
   const [prices, setPrices] = useState([]);
+  const [userSubscriptions, setUserSubscriptions] = useState([]);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchPrices();
   }, []);
+
+  useEffect(() => {
+    let result = [];
+    const check = () =>
+      state &&
+      state.user &&
+      state.user.subscriptions &&
+      state.user.subscriptions.map((sub) => {
+        result.push(sub.plan.id);
+      });
+    check();
+    setUserSubscriptions(result);
+  }, [state && state.user]);
 
   const fetchPrices = async () => {
     const { data } = await axios.get("/prices");
@@ -59,7 +73,7 @@ function Home(props) {
         {prices &&
           prices.map((price) => (
             <div key={price.id} className="col-md">
-              <PriceCardComponent price={price} handleSubscription={handleClick} />
+              <PriceCardComponent price={price} handleSubscription={handleClick} userSubscriptions={userSubscriptions} />
             </div>
           ))}
       </PageSectionLayout>
