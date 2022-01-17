@@ -8,7 +8,7 @@ const CardComponent = ({ price, handleSubscription, outline, userSubscriptions }
   // console.log("Price logged here:", price);
 
   const buttonText = () => {
-    return state && state.token ? "Subscribe" : "Sign Up";
+    return state && state.token ? (userSubscriptions && userSubscriptions.includes(price.id) ? "My Plan" : "Subscribe") : "Sign Up";
   };
 
   return (
@@ -25,7 +25,7 @@ const CardComponent = ({ price, handleSubscription, outline, userSubscriptions }
         </CardSubtitle>
         {/* <Link to="/register"> */}
         <Button color="primary" onClick={(e) => handleSubscription(e, price)}>
-          {userSubscriptions && userSubscriptions.includes(price.id) ? "My Plan" : buttonText()}
+          {buttonText()}
         </Button>
         {/* </Link> */}
       </CardBody>
