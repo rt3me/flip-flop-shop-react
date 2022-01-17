@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import RequireAuth from "./routes/RequireAuth";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
@@ -28,8 +29,22 @@ class Main extends Component {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/checkout/success" element={<CheckoutSuccess />} />
-          <Route path="/checkout/cancel" element={<CheckoutCancel />} />
+          <Route
+            path="/checkout/success"
+            element={
+              <RequireAuth>
+                <CheckoutSuccess />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/checkout/cancel"
+            element={
+              <RequireAuth>
+                <CheckoutCancel />
+              </RequireAuth>
+            }
+          />
         </Routes>
         <Footer />
       </div>
