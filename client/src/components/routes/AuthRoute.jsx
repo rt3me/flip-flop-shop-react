@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context";
 
-const RequireAuth = ({ ...rest }) => {
+const RequireAuth = ({ children }) => {
   const [state, setState] = useContext(UserContext);
 
   const navigate = useNavigate();
