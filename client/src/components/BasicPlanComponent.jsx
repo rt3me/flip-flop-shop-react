@@ -1,8 +1,10 @@
-import React, { Fragment, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context";
 
-const Basic = ({ history, match }) => {
+const Basic = ({ match }) => {
   const [state, setState] = useContext(UserContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let result = [];
@@ -18,12 +20,12 @@ const Basic = ({ history, match }) => {
     // console.log("MATCH", match);
     const plan = match.path.split("/")[1].toUpperCase(); // basic
     if (!result.includes(plan)) {
-      history.push("/");
+      navigate("/");
     }
   }, [state && state.user]);
 
   return (
-    <Fragment>
+    <React.Fragment>
       <div className="container-fluid">
         <div className="row py-5 bg-light text-center">
           <h1 className="display-4 fw-bold">BASIC</h1>
@@ -45,12 +47,7 @@ const Basic = ({ history, match }) => {
 
           <div className="col-md-4">
             <h4>Market analysis</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Accusantium ratione pariatur ab unde voluptatem ea, quae veniam
-              aperiam sint porro aliquid animi eveniet, culpa id reiciendis vel
-              nihil veritatis qui.
-            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ratione pariatur ab unde voluptatem ea, quae veniam aperiam sint porro aliquid animi eveniet, culpa id reiciendis vel nihil veritatis qui.</p>
             <h4>Email support</h4>
             <p>subscriptions@domain.com</p>
             <h4>Help center</h4>
@@ -58,7 +55,7 @@ const Basic = ({ history, match }) => {
           </div>
         </div>
       </div>
-    </Fragment>
+    </React.Fragment>
   );
 };
 
