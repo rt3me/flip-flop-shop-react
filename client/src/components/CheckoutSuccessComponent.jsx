@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { SyncOutlined } from "@ant-design/icons";
 
-const StripeSuccess = ({ history }) => {
+const CheckoutSuccess = ({ history }) => {
   useEffect(() => {
     const getSubscriptionStatus = async () => {
       const { data } = await axios.get("/subscription-status");
@@ -26,4 +26,4 @@ const StripeSuccess = ({ history }) => {
   );
 };
 
-export default StripeSuccess;
+export default CheckoutSuccess;
