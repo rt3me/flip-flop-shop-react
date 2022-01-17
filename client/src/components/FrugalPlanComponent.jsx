@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context";
 
-const Basic = ({ match }) => {
+const FrugalPlan = ({ match }) => {
   const [state, setState] = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -50,4 +50,4 @@ const Basic = ({ match }) => {
   );
 };
 
-export default Basic;
+export default FrugalPlan;
