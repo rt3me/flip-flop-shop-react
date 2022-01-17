@@ -12,6 +12,9 @@ import Register from "./RegisterComponent";
 import CheckoutSuccess from "./CheckoutSuccessComponent";
 import CheckoutCancel from "./CheckoutCancelComponent";
 import Account from "./AccountComponent";
+import FrugalPlan from "./FrugalPlanComponent";
+import FunLovingPlan from "./FunLovingPlanComponent";
+import FancyPantsPlan from "./FancyPantsPlanComponent";
 
 class Main extends Component {
   render() {
