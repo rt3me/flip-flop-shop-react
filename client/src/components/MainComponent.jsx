@@ -11,6 +11,7 @@ import Login from "./LoginComponent";
 import Register from "./RegisterComponent";
 import CheckoutSuccess from "./CheckoutSuccessComponent";
 import CheckoutCancel from "./CheckoutCancelComponent";
+import Account from "./AccountComponent";
 
 class Main extends Component {
   render() {
@@ -32,19 +33,20 @@ class Main extends Component {
           <Route
             path="/checkout/success"
             element={
-              <RequireAuth>
-                <CheckoutSuccess />
-              </RequireAuth>
+              // <RequireAuth>
+              <CheckoutSuccess />
+              // </RequireAuth>
             }
           />
           <Route
             path="/checkout/cancel"
             element={
-              <RequireAuth>
-                <CheckoutCancel />
-              </RequireAuth>
+              // <RequireAuth>
+              <CheckoutCancel />
+              // </RequireAuth>
             }
           />
+          <Route path="/account" element={<Account />} />
         </Routes>
         <Footer />
       </div>
