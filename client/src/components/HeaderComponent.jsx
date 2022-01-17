@@ -63,7 +63,9 @@ const Header = () => {
                     </NavItem>
                   </DropdownItem>
                   <DropdownItem>
-                    <NavbarText onClick={logout}>Logout</NavbarText>
+                    <NavItem>
+                      <NavLink onClick={logout}>Logout</NavLink>
+                    </NavItem>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
