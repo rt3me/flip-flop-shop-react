@@ -29,58 +29,62 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div>
-        <Navbar color="primary" container="lg" expand="md" light>
-          <NavbarBrand href="/">Flip Flop Surf Shop</NavbarBrand>
-          <NavbarToggler onClick={() => setNavOpen(!navOpen)} />
-          <Collapse navbar>
-            <Nav className="me-auto" navbar>
-              <NavItem>
-                <NavLink to="/">Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/about">About</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/contact">Contact Us</NavLink>
-              </NavItem>
-              <UncontrolledDropdown inNavbar nav>
-                <DropdownToggle caret nav>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>Option 1</DropdownItem>
-                  <DropdownItem>Option 2</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>Reset</DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-            </Nav>
+      <Navbar color="primary" container="lg" expand="md" light>
+        <NavbarBrand href="/">Flip Flop Surf Shop</NavbarBrand>
+        <NavbarToggler onClick={() => setNavOpen(!navOpen)} />
+        <Collapse isOpen={navOpen} navbar>
+          <Nav className="me-auto" navbar>
+            <NavItem>
+              <NavLink className="nav-link" to="/">
+                Home
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className="nav-link" to="/about">
+                About
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className="nav-link" to="/contact">
+                Contact Us
+              </NavLink>
+            </NavItem>
+            <UncontrolledDropdown inNavbar nav>
+              <DropdownToggle caret nav>
+                Options
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>Option 1</DropdownItem>
+                <DropdownItem>Option 2</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>Reset</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
             <NavbarText>
               {state && state.token ? (
                 <li className="nav-item">
                   <span className="nav-link" onClick={logout}>
-                    <i className="fa fa-sign-in fa-lg" /> Username / Logout
+                    Username / Logout
                   </span>
                 </li>
               ) : (
                 <React.Fragment>
                   <NavItem>
                     <NavLink className="nav-link" to="/register">
-                      <i className="fa fa-sign-in fa-lg" /> Register
+                      Register
                     </NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink className="nav-link" to="/login">
-                      <i className="fa fa-sign-in fa-lg" /> Login
+                      Login
                     </NavLink>
                   </NavItem>
                 </React.Fragment>
               )}
             </NavbarText>
-          </Collapse>
-        </Navbar>
-      </div>
+          </Nav>
+        </Collapse>
+      </Navbar>
     </React.Fragment>
   );
 };
