@@ -14,19 +14,13 @@ const FrugalPlan = ({ match }) => {
       state.user &&
       state.user.subscriptions &&
       state.user.subscriptions.map((sub) => {
-        // console.log("User subscriptions in state:", state.user.subscriptions);
-        // console.log("Frugal plan component: pushing subs to results array");
         result.push(sub.plan.nickname.toLowerCase());
       });
     if (state && state.user && state.user.subscriptions) {
       check();
       const planPath = location.pathname;
-      // console.log("Plan path:", planPath);
       const plan = location.pathname.split("/")[1].toLowerCase();
-      // console.log("Plan from path:", plan);
-      // console.log("Subscriptions from user:", result);
       if (!result.includes(plan)) {
-        // console.log(`Result array ${result} does not include plan: ${plan}`);
         navigate("/");
       }
     }
