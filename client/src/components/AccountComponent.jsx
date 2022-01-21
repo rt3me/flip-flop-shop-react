@@ -50,7 +50,7 @@ const Account = ({ history }) => {
                     .format("dddd, MMMM Do YYYY")
                     .toString()}
                 </p>
-                <button onClick={() => navigate(`/${sub.plan.nickname.toLowerCase()}`)} className="btn btn-outline-danger">
+                <button onClick={() => navigate(`/${sub.plan.nickname.replaceAll(" ", "-").toLowerCase()}`)} className="btn btn-outline-danger">
                   Access Subscription
                 </button>{" "}
                 <button className="btn btn-outline-warning">Manage Subscription</button>
