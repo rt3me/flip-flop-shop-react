@@ -1,26 +1,30 @@
 import React, { useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { UserContext } from "../context";
 
 const FrugalPlan = ({ match }) => {
   const [state, setState] = useContext(UserContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     let result = [];
-    const check = () =>
+    const check = async () =>
       state &&
       state.user &&
       state.user.subscriptions &&
       state.user.subscriptions.map((sub) => {
-        result.push(sub.plan.nickname);
+        console.log("Frugal plan component: pushing subs to results array");
+        result.push(sub.plan.nickname.toLowerCase());
       });
-    check();
+    if (state && state.user) check();
 
-    // console.log("MATCH", match);
-    const plan = match.path.split("/")[1].toUpperCase(); // basic
+    console.log("User subscriptions in state:", state.user.subscriptions);
+    const plan = location.pathname.split("/")[1].toLowerCase();
+    console.log("Plan from path:", plan);
+    console.log("Subscriptions from user:", result);
     if (!result.includes(plan)) {
-      navigate("/");
+      //navigate("/");
     }
   }, [state && state.user]);
 
@@ -28,14 +32,15 @@ const FrugalPlan = ({ match }) => {
     <React.Fragment>
       <div className="container-fluid">
         <div className="row py-5 bg-light text-center">
-          <h1 className="display-4 fw-bold">Frugal</h1>
+          <h2 className="display-4 fw-bold">Frugal</h2>
           <p className="lead">Flip flops for the frugal guy</p>
         </div>
       </div>
 
       <div className="container py-5">
         <div className="row">
-          <div className="col-md-8 p-5 rounded bg-dark text-light">
+          <div className="p-5">
+            <h3 className="fw-bold">The Stats</h3>
             <ul className="lead">
               <li>Good looks built-in</li>
               <li>Jealous looks from the over-spenders</li>
