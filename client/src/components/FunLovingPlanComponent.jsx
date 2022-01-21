@@ -29,14 +29,15 @@ const FunLovingPlan = () => {
     <React.Fragment>
       <div className="container-fluid">
         <div className="row py-5 bg-light text-center">
-          <h1 className="display-4 fw-bold">Fun Loving</h1>
+          <h2 className="display-4 fw-bold">Fun Loving</h2>
           <p className="lead">Flip flops for the fun loving dude</p>
         </div>
       </div>
 
       <div className="container py-5">
         <div className="row">
-          <div className="col-md-8 p-5 rounded bg-dark text-light">
+          <div className="p-5">
+            <h3 className="fw-bold">The Stats</h3>
             <ul className="lead">
               <li>Complement your best beach shirt</li>
               <li>Fun friend award waiting on you</li>
