@@ -9,22 +9,26 @@ const FrugalPlan = ({ match }) => {
 
   useEffect(() => {
     let result = [];
-    const check = async () =>
+    const check = () =>
       state &&
       state.user &&
       state.user.subscriptions &&
       state.user.subscriptions.map((sub) => {
+        console.log("User subscriptions in state:", state.user.subscriptions);
         console.log("Frugal plan component: pushing subs to results array");
-        result.push(sub.plan.nickname.toLowerCase());
+        result.push(sub.plan.nickname.toUpperCase());
       });
-    if (state && state.user) check();
-
-    console.log("User subscriptions in state:", state.user.subscriptions);
-    const plan = location.pathname.split("/")[1].toLowerCase();
-    console.log("Plan from path:", plan);
-    console.log("Subscriptions from user:", result);
-    if (!result.includes(plan)) {
-      //navigate("/");
+    if (state && state.user && state.user.subscriptions) {
+      check();
+      const planPath = location.pathname;
+      console.log("Plan path:", planPath);
+      const plan = location.pathname.split("/")[1].toUpperCase();
+      console.log("Plan from path:", plan);
+      console.log("Subscriptions from user:", result);
+      if (!result.includes(plan)) {
+        console.log(`Result array ${result} does not include plan: ${plan}`);
+        navigate("/");
+      }
     }
   }, [state && state.user]);
 
