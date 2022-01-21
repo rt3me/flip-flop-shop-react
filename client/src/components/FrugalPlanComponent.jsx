@@ -15,7 +15,7 @@ const FrugalPlan = ({ match }) => {
       });
     }
     const plan = location.pathname.split("/")[1].toLowerCase();
-    if (!result.includes(plan)) {
+    if (!result.includes(plan) || !state) {
       navigate("/");
     }
   }, [state && state.user]);
