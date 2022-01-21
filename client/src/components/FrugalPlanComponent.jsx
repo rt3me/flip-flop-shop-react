@@ -9,12 +9,17 @@ const FrugalPlan = ({ match }) => {
 
   useEffect(() => {
     let result = [];
+    // if user is authenticated and has subscriptions
+    // load subscriptions into result array
     if (state && state.user && state.user.subscriptions) {
       state.user.subscriptions.map((sub) => {
         result.push(sub.plan.nickname.toLowerCase());
       });
     }
+    // extract plan name from path name
     const plan = location.pathname.split("/")[1].toLowerCase();
+    // if plan name is not in subscriptions array or if user
+    // is not authenticated, redirect user
     if (!result.includes(plan) || !state) {
       navigate("/");
     }
