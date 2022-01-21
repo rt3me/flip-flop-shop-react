@@ -65,7 +65,8 @@ function Home(props) {
       const { data } = await axios.post("/create-subscription", {
         priceId: price.id,
       });
-      window.open(data);
+      // navigate(data);
+      window.open(data, "_self");
     } else {
       navigate("/register");
     }
