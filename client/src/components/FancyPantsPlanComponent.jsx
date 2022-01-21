@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { UserContext } from "../context";
 
-const FancyPantsPlan = ({ match }) => {
+const FancyPantsPlan = () => {
   const [state, setState] = useContext(UserContext);
   const navigate = useNavigate();
   const location = useLocation();
