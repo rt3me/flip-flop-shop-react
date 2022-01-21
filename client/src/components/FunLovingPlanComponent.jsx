@@ -1,25 +1,26 @@
 import React, { useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { UserContext } from "../context";
 
 const FunLovingPlan = ({ match }) => {
   const [state, setState] = useContext(UserContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     let result = [];
-    const check = () =>
-      state &&
-      state.user &&
-      state.user.subscriptions &&
+    // if user is authenticated and has subscriptions
+    // load subscriptions into result array
+    if (state && state.user && state.user.subscriptions) {
       state.user.subscriptions.map((sub) => {
-        result.push(sub.plan.nickname);
+        result.push(sub.plan.nickname.toLowerCase());
       });
-    check();
-
-    // console.log("MATCH", match);
-    const plan = match.path.split("/")[1].toUpperCase(); // basic
-    if (!result.includes(plan)) {
+    }
+    // extract plan name from path name
+    const plan = location.pathname.split("/")[1].toLowerCase();
+    // if plan name is not in subscriptions array or if user
+    // is not authenticated, redirect user
+    if (!result.includes(plan) || !state) {
       navigate("/");
     }
   }, [state && state.user]);
