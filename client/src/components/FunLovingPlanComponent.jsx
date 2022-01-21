@@ -17,7 +17,7 @@ const FunLovingPlan = ({ match }) => {
       });
     }
     // extract plan name from path name
-    const plan = location.pathname.split("/")[1].toLowerCase();
+    const plan = location.pathname.split("/")[1].replaceAll(" ", "-").toLowerCase();
     // if plan name is not in subscriptions array or if user
     // is not authenticated, redirect user
     if (!result.includes(plan) || !state) {
