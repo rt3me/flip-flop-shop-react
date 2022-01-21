@@ -15,11 +15,9 @@ const FunLovingPlan = ({ match }) => {
       state.user.subscriptions.map((sub) => {
         result.push(sub.plan.nickname.replaceAll(" ", "-").toLowerCase());
       });
-      console.log("Fun Loving user subs result:", result);
     }
     // extract plan name from path name
     const plan = location.pathname.split("/")[1].toLowerCase();
-    console.log("Fun Loving path plan:", plan);
     // if plan name is not in subscriptions array or if user
     // is not authenticated, redirect user
     if (!result.includes(plan) || !state) {
