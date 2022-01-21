@@ -15,7 +15,7 @@ const Header = () => {
     navigate("/login");
   };
 
-  console.log("STATE =>", state);
+  // console.log("STATE =>", state);
 
   return (
     <React.Fragment>
