@@ -28,14 +28,15 @@ const FancyPantsPlan = ({ match }) => {
     <React.Fragment>
       <div className="container-fluid">
         <div className="row py-5 bg-light text-center">
-          <h1 className="display-4 fw-bold">Fancy Pants</h1>
+          <h2 className="display-4 fw-bold">Fancy Pants</h2>
           <p className="lead">Flip flops for the fancy pants man</p>
         </div>
       </div>
 
       <div className="container py-5">
         <div className="row">
-          <div className="col-md-8 p-5 rounded bg-dark text-light">
+          <div className="p-5">
+            <h3 className="fw-bold">The Stats</h3>
             <ul className="lead">
               <li>When sandals just won't do</li>
               <li>Make 'em roll their eyes</li>
