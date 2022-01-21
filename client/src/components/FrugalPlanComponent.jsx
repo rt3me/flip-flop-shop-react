@@ -9,20 +9,14 @@ const FrugalPlan = ({ match }) => {
 
   useEffect(() => {
     let result = [];
-    const check = () =>
-      state &&
-      state.user &&
-      state.user.subscriptions &&
+    if (state && state.user && state.user.subscriptions) {
       state.user.subscriptions.map((sub) => {
         result.push(sub.plan.nickname.toLowerCase());
       });
-    if (state && state.user && state.user.subscriptions) {
-      check();
-      const planPath = location.pathname;
-      const plan = location.pathname.split("/")[1].toLowerCase();
-      if (!result.includes(plan)) {
-        navigate("/");
-      }
+    }
+    const plan = location.pathname.split("/")[1].toLowerCase();
+    if (!result.includes(plan)) {
+      navigate("/");
     }
   }, [state && state.user]);
 
