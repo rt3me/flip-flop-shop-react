@@ -13,7 +13,7 @@ const FunLovingPlan = ({ match }) => {
     // load subscriptions into result array
     if (state && state.user && state.user.subscriptions) {
       state.user.subscriptions.map((sub) => {
-        result.push(sub.plan.nickname.toLowerCase());
+        result.push(sub.plan.nickname.replaceAll(" ", "-").toLowerCase());
       });
       console.log("Fun Loving user subs result:", result);
     }
