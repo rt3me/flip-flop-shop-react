@@ -13,7 +13,7 @@ const FrugalPlan = () => {
     // load subscriptions into result array
     if (state && state.user && state.user.subscriptions) {
       state.user.subscriptions.map((sub) => {
-        result.push(sub.plan.nickname.toLowerCase());
+        result.push(sub.plan.nickname.replaceAll(" ", "-").toLowerCase());
       });
     }
     // extract plan name from path name
