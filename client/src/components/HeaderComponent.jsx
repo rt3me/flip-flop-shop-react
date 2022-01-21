@@ -54,7 +54,7 @@ const Header = () => {
                 <DropdownToggle caret nav>
                   {state.user.email}
                 </DropdownToggle>
-                <DropdownMenu right>
+                <DropdownMenu end>
                   <DropdownItem>
                     <NavItem>
                       <NavLink tag={RRNavLink} to="/account">
