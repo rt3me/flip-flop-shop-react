@@ -57,10 +57,10 @@ function Home(props) {
   const handleClick = async (e, price) => {
     e.preventDefault();
     if (userSubscriptions && userSubscriptions.includes(price.id)) {
+      // console.log("Home component navigating user to plan page");
       navigate(`/${price.nickname.replaceAll(" ", "-").toLowerCase()}`);
       return;
     }
-    // console.log("Plan clicked, price.id:", price.id);
     if (state && state.token) {
       const { data } = await axios.post("/create-subscription", {
         priceId: price.id,
