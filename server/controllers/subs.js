@@ -8,39 +8,13 @@ export const prices = async (req, res) => {
 };
 
 export const createSubscription = async (req, res) => {
-  // https://stripe.com/docs/payments/checkout/shipping
   // console.log(req.body);
   try {
     const user = await User.findById(req.user._id);
 
     const session = await stripe.checkout.sessions.create({
+      mode: "subscription",
       payment_method_types: ["card"],
-      shipping_address_collection: {
-        allowed_countries: ["US"],
-      },
-      shipping_options: [
-        {
-          shipping_rate_data: {
-            type: "fixed_amount",
-            fixed_amount: {
-              amount: 0,
-              currency: "usd",
-            },
-            display_name: "Free shipping",
-            // Delivers between 5-7 business days
-            delivery_estimate: {
-              minimum: {
-                unit: "business_day",
-                value: 5,
-              },
-              maximum: {
-                unit: "business_day",
-                value: 7,
-              },
-            },
-          },
-        },
-      ],
       line_items: [
         {
           price: req.body.priceId,
@@ -48,11 +22,9 @@ export const createSubscription = async (req, res) => {
         },
       ],
       customer: user.stripe_customer_id,
-      mode: "subscription",
       success_url: process.env.STRIPE_SUCCESS_URL,
       cancel_url: process.env.STRIPE_CANCEL_URL,
     });
-
     console.log("checkout session", session);
     res.json(session.url);
   } catch (err) {
