@@ -5,7 +5,7 @@ import axios from "axios";
 import { UserContext } from "../context";
 import moment from "moment";
 
-const Account = ({ history }) => {
+const Account = () => {
   const [state, setState] = useContext(UserContext);
   const [subscriptions, setSubscriptions] = useState([]);
 
