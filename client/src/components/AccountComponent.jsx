@@ -35,21 +35,23 @@ const Account = ({ history }) => {
             <div key={sub.id}>
               <section>
                 <hr />
-                <h4 className="fw-bold">{sub.plan.nickname}</h4>
+                <h4 className="fw-bold">
+                  {sub.plan.nickname} ({sub.status})
+                </h4>
                 <h5>
                   {(sub.plan.amount / 100).toLocaleString("en-US", {
                     style: "currency",
                     currency: sub.plan.currency,
                   })}
+                  <small className="text-muted fw-light">/mo</small>
                 </h5>
-                <p>Subscription status: {sub.status}</p>
-                <p>Last 4 digits of card: {sub.default_payment_method.card.last4}</p>
                 <p>
-                  Current period end:{" "}
+                  Renews:{" "}
                   {moment(sub.current_period_end * 1000)
                     .format("dddd, MMMM Do YYYY")
                     .toString()}
                 </p>
+                <p>Last 4 digits: {sub.default_payment_method.card.last4}</p>
                 <button onClick={() => navigate(`/${sub.plan.nickname.replaceAll(" ", "-").toLowerCase()}`)} className="btn btn-outline-danger">
                   Access Subscription
                 </button>{" "}
