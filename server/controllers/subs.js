@@ -8,6 +8,7 @@ export const prices = async (req, res) => {
 };
 
 export const createSubscription = async (req, res) => {
+  // https://stripe.com/docs/payments/checkout/shipping
   // console.log(req.body);
   try {
     const user = await User.findById(req.user._id);
@@ -15,7 +16,7 @@ export const createSubscription = async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       shipping_address_collection: {
-        allowed_countries: ["US", "CA"],
+        allowed_countries: ["US"],
       },
       shipping_options: [
         {
