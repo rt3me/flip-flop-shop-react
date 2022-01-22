@@ -22,7 +22,7 @@ const Account = () => {
   }, [state && state.token]);
 
   const manageSubscriptions = async () => {
-    const { data } = await axios.get("/customer-portal");
+    const { data } = await axios.get("/manage");
     window.open(data, "_self");
   };
 
