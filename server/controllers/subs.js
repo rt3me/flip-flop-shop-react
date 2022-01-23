@@ -14,6 +14,7 @@ export const createSubscription = async (req, res) => {
 
     const session = await stripe.checkout.sessions.create({
       mode: "subscription",
+      billing_address_collection: "required",
       payment_method_types: ["card"],
       line_items: [
         {
