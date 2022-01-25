@@ -3,7 +3,7 @@ import { UserContext } from "../context";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import PageSectionLayout from "./PageSectionLayout";
-import PriceCardComponent from "./PriceCardComponent";
+import PriceCard from "./PriceCardComponent";
 
 function Home(props) {
   const [state, setState] = useContext(UserContext);
@@ -74,7 +74,7 @@ function Home(props) {
         {prices &&
           prices.map((price) => (
             <div key={price.id} className="col-md">
-              <PriceCardComponent price={price} handleSubscription={handleClick} userSubscriptions={userSubscriptions} />
+              <PriceCard price={price} handleSubscription={handleClick} userSubscriptions={userSubscriptions} />
             </div>
           ))}
       </PageSectionLayout>
