@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { NavLink as RRNavLink, useNavigate } from "react-router-dom";
 import { NavLink, Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, NavbarText, DropdownItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, Media } from "reactstrap";
 import { UserContext } from "../context";
+import { ReactComponent as Logo } from "../logo.svg";
 
 const Header = () => {
   const [state, setState] = useContext(UserContext);
@@ -31,7 +32,7 @@ const Header = () => {
       </div>
       <Navbar color="primary" container="sm" expand="md" light>
         <NavbarBrand href="/">
-          <img src="../../logo.svg" alt="Logo" width="6rem" />
+          <Logo alt="Logo" width="6rem" />
         </NavbarBrand>
         <NavbarToggler onClick={() => setNavOpen(!navOpen)} />
         <Collapse isOpen={navOpen} navbar>
