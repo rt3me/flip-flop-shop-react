@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from "../context";
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 
-const CardComponent = ({ price, handleSubscription, outline, userSubscriptions }) => {
+const PriceCard = ({ price, handleSubscription, outline, userSubscriptions }) => {
   const [state] = useContext(UserContext);
 
   const buttonText = () => {
@@ -29,4 +29,4 @@ const CardComponent = ({ price, handleSubscription, outline, userSubscriptions }
   );
 };
 
-export default CardComponent;
+export default PriceCard;
