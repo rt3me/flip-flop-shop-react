@@ -5,8 +5,6 @@ import { Card, CardImg, CardBody, CardTitle, CardSubtitle, Button } from "reacts
 const CardComponent = ({ price, handleSubscription, outline, userSubscriptions }) => {
   const [state] = useContext(UserContext);
 
-  // console.log("Price logged here:", price);
-
   const buttonText = () => {
     return state && state.token ? (userSubscriptions && userSubscriptions.includes(price.id) ? "My Plan" : "Subscribe") : "Sign Up";
   };
@@ -23,11 +21,9 @@ const CardComponent = ({ price, handleSubscription, outline, userSubscriptions }
           })}
           <small className="text-muted fw-light">/mo</small>
         </CardSubtitle>
-        {/* <Link to="/register"> */}
         <Button color="primary" onClick={(e) => handleSubscription(e, price)}>
           {buttonText()}
         </Button>
-        {/* </Link> */}
       </CardBody>
     </Card>
   );
