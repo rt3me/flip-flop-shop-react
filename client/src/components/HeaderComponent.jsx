@@ -20,16 +20,6 @@ const Header = () => {
 
   return (
     <React.Fragment>
-      <div className="p-5 bg-primary text-white jumbotron">
-        <div className="container">
-          <div className="row">
-            <div className="col">
-              <h1>Flip Flop</h1>
-              <h2>a flippier way to flop</h2>
-            </div>
-          </div>
-        </div>
-      </div>
       <Navbar color="primary" container="sm" expand="md" light>
         <NavbarBrand href="/">
           <Logo alt="Logo" width="6rem" />
