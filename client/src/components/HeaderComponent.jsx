@@ -21,12 +21,12 @@ const Header = () => {
   return (
     <React.Fragment>
       <Navbar color="primary" container="sm" expand="md" light>
-        <NavbarBrand href="/">
+        <NavbarBrand href="/" className="d-flex w-50 mr-auto">
           <Logo alt="Logo" width="6rem" />
         </NavbarBrand>
         <NavbarToggler onClick={() => setNavOpen(!navOpen)} />
-        <Collapse isOpen={navOpen} navbar>
-          <Nav className="me-auto" navbar>
+        <Collapse isOpen={navOpen} className="w-100" navbar>
+          <Nav className="w-100 justify-content-center" navbar>
             <NavItem>
               <NavLink tag={RRNavLink} activeClassName="active" to="/">
                 Home
@@ -42,6 +42,8 @@ const Header = () => {
                 Contact Us
               </NavLink>
             </NavItem>
+          </Nav>
+          <Nav className="ms-auto w-100 justify-content-end" navbar>
             {state && state.token ? (
               <UncontrolledDropdown inNavbar nav>
                 <DropdownToggle caret nav>
