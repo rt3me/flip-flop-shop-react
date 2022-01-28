@@ -28,7 +28,7 @@ const CheckoutSuccess = () => {
     };
 
     if (state && state.token) getSubscriptionStatus();
-  }, [state && state.token, state, setState, navigate]);
+  }, [state, state.token, setState, navigate]);
 
   return (
     <div className="d-flex justify-content-center fw-bold" style={{ height: "90vh" }}>
