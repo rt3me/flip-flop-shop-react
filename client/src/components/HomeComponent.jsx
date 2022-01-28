@@ -16,13 +16,15 @@ function Home(props) {
     fetchPrices();
   }, []);
 
+  const effectDepArray = state && state.user;
+
   useEffect(() => {
     let result = [];
-    if (state && state.user && state.user.subscriptions) {
+    if (effectDepArray && state.user.subscriptions) {
       state.user.subscriptions.map((sub) => result.push(sub.plan.id));
     }
     setUserSubscriptions(result);
-  }, [state, state.user]);
+  }, [effectDepArray, state]);
 
   const fetchPrices = async () => {
     const { data } = await axios.get("/prices");
