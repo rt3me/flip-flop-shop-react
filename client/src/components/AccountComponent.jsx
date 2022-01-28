@@ -19,7 +19,7 @@ const Account = () => {
     };
 
     if (state && state.token) getSubscriptions();
-  }, [state && state.token]);
+  }, [state, state.token]);
 
   const manageSubscriptions = async () => {
     const { data } = await axios.get("/manage");
