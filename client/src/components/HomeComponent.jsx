@@ -19,9 +19,7 @@ function Home(props) {
   useEffect(() => {
     let result = [];
     if (state && state.user && state.user.subscriptions) {
-      state.user.subscriptions.map((sub) => {
-        result.push(sub.plan.id);
-      });
+      state.user.subscriptions.map((sub) => result.push(sub.plan.id));
     }
     setUserSubscriptions(result);
   }, [state, state.user]);
