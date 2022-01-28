@@ -6,7 +6,7 @@ import { UserContext } from "../context";
 import moment from "moment";
 
 const Account = () => {
-  const [state, setState] = useContext(UserContext);
+  const [state] = useContext(UserContext);
   const [subscriptions, setSubscriptions] = useState([]);
 
   const navigate = useNavigate();
