@@ -6,7 +6,7 @@ import PageSectionLayout from "./PageSectionLayout";
 import PriceCard from "./PriceCardComponent";
 
 function Home(props) {
-  const [state, setState] = useContext(UserContext);
+  const [state] = useContext(UserContext);
   const [prices, setPrices] = useState([]);
   const [userSubscriptions, setUserSubscriptions] = useState([]);
 
