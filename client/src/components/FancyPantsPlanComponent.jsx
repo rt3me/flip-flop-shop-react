@@ -12,9 +12,7 @@ const FancyPantsPlan = () => {
     // if user is authenticated and has subscriptions
     // load subscriptions into result array
     if (state && state.user && state.user.subscriptions) {
-      state.user.subscriptions.map((sub) => {
-        result.push(sub.plan.nickname.replaceAll(" ", "-").toLowerCase());
-      });
+      state.user.subscriptions.map((sub) => result.push(sub.plan.nickname.replaceAll(" ", "-").toLowerCase()));
     }
     // extract plan name from path name
     const plan = location.pathname.split("/")[1].toLowerCase();
