@@ -21,7 +21,7 @@ const FrugalPlan = () => {
     if (!result.includes(plan) || !state) {
       navigate("/");
     }
-  }, [state && state.user]);
+  }, [state, state.user, location.pathname, navigate]);
 
   return (
     <React.Fragment>
