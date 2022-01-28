@@ -24,7 +24,7 @@ function Home(props) {
       });
     }
     setUserSubscriptions(result);
-  }, [state && state.user]);
+  }, [state, state.user]);
 
   const fetchPrices = async () => {
     const { data } = await axios.get("/prices");
