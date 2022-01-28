@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import RequireAuth from "./routes/RequireAuth";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
