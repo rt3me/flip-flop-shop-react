@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { UserContext } from "../context";
 
 const FrugalPlan = () => {
-  const [state, setState] = useContext(UserContext);
+  const [state] = useContext(UserContext);
   const navigate = useNavigate();
   const location = useLocation();
 
