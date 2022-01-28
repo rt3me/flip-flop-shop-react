@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { NavLink as RRNavLink, useNavigate } from "react-router-dom";
-import { NavLink, Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, NavbarText, DropdownItem, UncontrolledDropdown, DropdownToggle, DropdownMenu, Media } from "reactstrap";
+import { NavLink, Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, DropdownItem, UncontrolledDropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 import { UserContext } from "../context";
 import { ReactComponent as Logo } from "../logo.svg";
 
