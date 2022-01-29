@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { UserContext } from "../context";
 import moment from "moment";
@@ -29,7 +28,6 @@ const Account = () => {
   return (
     <div className="container">
       <div className="row">
-        <UserOutlined className="display-4" />
         <h1>Account</h1>
         <p className="lead pb-4">Subscription status</p>
       </div>
