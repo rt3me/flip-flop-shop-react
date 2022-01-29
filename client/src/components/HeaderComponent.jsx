@@ -20,10 +20,10 @@ const Header = () => {
 
   return (
     <React.Fragment>
-      <Navbar color="primary" container="sm" expand="md" light>
+      <Navbar color="primary" container="sm" expand="md" dark>
         <NavbarBrand href="/" className="d-flex w-50 mr-auto">
           <Logo alt="Logo" height="1.9rem" className="d-block align-text-top" />
-          &nbsp;&nbsp;Surf Shop
+          <span>&nbsp;&nbsp;Surf Shop</span>
         </NavbarBrand>
         <NavbarToggler onClick={() => setNavOpen(!navOpen)} />
         <Collapse isOpen={navOpen} className="w-100" navbar>

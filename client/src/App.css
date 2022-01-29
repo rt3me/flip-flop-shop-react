@@ -2,8 +2,18 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-.navbar-brand {
+nav.navbar-dark {
+  /* internal page nav */
+  background-color: #04bf9d !important;
+}
+
+.dropdown-menu .dropdown-item .nav-link {
+  color: #04bf9d;
+}
+
+navbar-dark a.navbar-brand {
   font-family: "Permanent Marker", cursive;
+  color: #ffffff;
 }
 
 h1,
