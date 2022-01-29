@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Breadcrumb, BreadcrumbItem, Form, InputGroup, InputGroupText, Input, Button } from "reactstrap";
+import { Form, InputGroup, InputGroupText, Input, Button } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -45,12 +45,12 @@ const Register = () => {
     <div className="container">
       <div className="row">
         <div className="col">
-          <Breadcrumb>
+          {/* <Breadcrumb>
             <BreadcrumbItem>
               <Link to="/home">Home</Link>
             </BreadcrumbItem>
             <BreadcrumbItem active>Register</BreadcrumbItem>
-          </Breadcrumb>
+          </Breadcrumb> */}
           <h2>Register</h2>
           <hr />
         </div>
@@ -84,11 +84,11 @@ const Register = () => {
           <br />
         </div>
       </div>
-      <div className="row">
+      {/* <div className="row">
         <div className="col">
           <pre>{JSON.stringify({ name, email, password }, null, 4)}</pre>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
