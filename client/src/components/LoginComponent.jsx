@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Form, InputGroup, InputGroupText, Input, Button } from "reactstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { UserContext } from "../context";

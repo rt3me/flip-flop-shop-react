@@ -1,6 +1,5 @@
 import React from "react";
-import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Card, CardBody, CardHeader, Media } from "reactstrap";
 import { Fade, Stagger } from "react-animation-components";
 import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
@@ -54,12 +53,12 @@ function About(props) {
     <div className="container">
       <div className="row">
         <div className="col">
-          <Breadcrumb>
+          {/* <Breadcrumb>
             <BreadcrumbItem>
               <Link to="/home">Home</Link>
             </BreadcrumbItem>
             <BreadcrumbItem active>About Us</BreadcrumbItem>
-          </Breadcrumb>
+          </Breadcrumb> */}
           <h2>About Us</h2>
           <hr />
         </div>
