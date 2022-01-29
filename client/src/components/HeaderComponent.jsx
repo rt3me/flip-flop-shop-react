@@ -22,7 +22,8 @@ const Header = () => {
     <React.Fragment>
       <Navbar color="primary" container="sm" expand="md" light>
         <NavbarBrand href="/" className="d-flex w-50 mr-auto">
-          <Logo alt="Logo" width="6rem" />
+          <Logo alt="Logo" width="3.25rem" />
+          &nbsp;&nbsp;Surf Shop
         </NavbarBrand>
         <NavbarToggler onClick={() => setNavOpen(!navOpen)} />
         <Collapse isOpen={navOpen} className="w-100" navbar>
