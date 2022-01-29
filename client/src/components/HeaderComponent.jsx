@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { NavLink as RRNavLink, useNavigate } from "react-router-dom";
-import { NavLink, Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, DropdownItem, UncontrolledDropdown, DropdownToggle, DropdownMenu } from "reactstrap";
+import { NavLink, Navbar, NavbarBrand, Nav, NavbarText, NavbarToggler, Collapse, NavItem, DropdownItem, UncontrolledDropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 import { UserContext } from "../context";
 import { ReactComponent as Logo } from "../logo.svg";
 
@@ -22,7 +22,7 @@ const Header = () => {
     <React.Fragment>
       <Navbar color="primary" container="sm" expand="md" light>
         <NavbarBrand href="/" className="d-flex w-50 mr-auto">
-          <Logo alt="Logo" width="3.25rem" />
+          <Logo alt="Logo" width="3.25rem" className="d-inline-block align-text-top" />
           &nbsp;&nbsp;Surf Shop
         </NavbarBrand>
         <NavbarToggler onClick={() => setNavOpen(!navOpen)} />
