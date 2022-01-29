@@ -1,19 +1,9 @@
 body {
   font-family: "Open Sans", sans-serif;
-}
-
-nav.navbar-dark {
-  /* internal page nav */
-  background-color: #04bf9d !important;
-}
-
-.dropdown-menu .dropdown-item .nav-link {
-  color: #04bf9d;
-}
-
-navbar-dark a.navbar-brand {
-  font-family: "Permanent Marker", cursive;
-  color: #ffffff;
+  color: #5a5a5a;
+  background-image: url("../public/images/flip-flop-pattern.svg");
+  background-size: 20rem;
+  background-position: center;
 }
 
 h1,
@@ -35,12 +25,57 @@ h2 {
   line-height: 3.5rem;
 }
 
+.home-page-container header {
+  background-image: url("../public/images/flip-flop-cover.svg");
+  background-repeat: no-repeat;
+  background-position: top -80px left 50%;
+  background-size: 1000px;
+  min-height: 24rem;
+}
+
+@media only screen and (min-width: 768px) {
+  header {
+    background-position: top -180px left 50%;
+    background-size: 1300px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  header {
+    background-position: top -275px left 50%;
+    background-size: 1550px;
+  }
+}
+
+nav.navbar-dark {
+  /* internal page nav */
+  background-color: #04bf9d !important;
+}
+
+.home-page-container nav.navbar-dark {
+  background-color: transparent !important;
+}
+
+.dropdown-menu .dropdown-item .nav-link,
+.dropdown-menu .dropdown-item .nav-link.active {
+  color: #04bf9d;
+}
+
+navbar-dark a.navbar-brand {
+  font-family: "Permanent Marker", cursive;
+  color: #ffffff;
+}
+
 .card-body > .card-title {
   font-size: 2.5rem;
 }
 
 .nav-link {
   cursor: pointer;
+}
+
+.card {
+  background-color: transparent;
 }
 
 .card-img-overlay .card-title {

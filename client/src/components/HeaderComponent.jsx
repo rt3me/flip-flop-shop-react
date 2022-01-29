@@ -19,7 +19,7 @@ const Header = () => {
   // console.log("STATE =>", state);
 
   return (
-    <React.Fragment>
+    <header>
       <Navbar color="primary" container="sm" expand="md" dark>
         <NavbarBrand href="/" className="d-flex w-50 mr-auto">
           <Logo alt="Logo" height="1.9rem" className="d-block align-text-top" />
@@ -82,7 +82,7 @@ const Header = () => {
           </Nav>
         </Collapse>
       </Navbar>
-    </React.Fragment>
+    </header>
   );
 };
 
