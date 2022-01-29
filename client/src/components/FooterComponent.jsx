@@ -6,14 +6,11 @@ function Footer() {
     <footer className="site-footer">
       <div className="container">
         <div className="row">
-          <div className="col-4 col-sm-2 offset-1">
+          <div className="col-3 col-sm-3 offset-sm-2">
             <h5>Links</h5>
             <ul className="list-unstyled">
               <li>
                 <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/directory">Directory</Link>
               </li>
               <li>
                 <Link to="/about">About</Link>
@@ -23,29 +20,16 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col-6 col-sm-3 text-center">
-            <h5>Social</h5>
-            <a className="btn btn-social-icon btn-instagram" href="https://instagram.com/">
-              <i className="fa fa-instagram" />
-            </a>{" "}
-            <a className="btn btn-social-icon btn-facebook" href="https://www.facebook.com/">
-              <i className="fa fa-facebook" />
-            </a>{" "}
-            <a className="btn btn-social-icon btn-twitter" href="https://twitter.com/">
-              <i className="fa fa-twitter" />
-            </a>{" "}
-            <a className="btn btn-social-icon btn-google" href="https://youtube.com/">
-              <i className="fa fa-youtube" />
-            </a>
-          </div>
-          <div className="col-sm-4 text-center">
-            <a role="button" className="btn btn-link" href="tel:+12065551234">
-              <i className="fa fa-phone" /> 1-206-555-1234
-            </a>
-            <br />
-            <a role="button" className="btn btn-link" href="mailto:notreal@notreal.co">
-              <i className="fa fa-envelope-o" /> campsites@nucamp.co
-            </a>
+          <div className="col-sm-3">
+            <h5>Contact</h5>
+            <ul className="list-unstyled">
+              <li>
+                <a href="tel:+18103995911">810-399-5911</a>
+              </li>
+              <li>
+                <a href="mailto:hello@flipflopsurf.shop">hello@flipflopsurf.shop</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
