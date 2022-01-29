@@ -26,46 +26,52 @@ const Account = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <h1>Account</h1>
-        <p className="lead pb-4">Subscription status</p>
+    <React.Fragment>
+      <div className="container-fluid page-heading-section bg-light">
+        <div className="container">
+          <div className="row py-5 text-center">
+            <h1 className="display-4 fw-bold">Account</h1>
+            <p className="lead">Manage your flip flops</p>
+          </div>
+        </div>
       </div>
 
-      <div className="row">
-        {subscriptions &&
-          subscriptions.map((sub) => (
-            <div key={sub.id}>
-              <section>
-                <hr />
-                <h4 className="fw-bold">
-                  {sub.plan.nickname} ({sub.status})
-                </h4>
-                <h5>
-                  {(sub.plan.amount / 100).toLocaleString("en-US", {
-                    style: "currency",
-                    currency: sub.plan.currency,
-                  })}
-                  <small className="text-muted fw-light">/mo</small>
-                </h5>
-                <p>
-                  Renews:{" "}
-                  {moment(sub.current_period_end * 1000)
-                    .format("dddd, MMMM Do YYYY")
-                    .toString()}
-                </p>
-                <p>Last 4 digits: {sub.default_payment_method.card.last4}</p>
-                <button onClick={() => navigate(`/${sub.plan.nickname.replaceAll(" ", "-").toLowerCase()}`)} className="btn btn-outline-danger">
-                  Access Subscription
-                </button>{" "}
-                <button onClick={manageSubscriptions} className="btn btn-outline-warning">
-                  Manage Subscription
-                </button>
-              </section>
-            </div>
-          ))}
+      <div className="container">
+        <div className="row">
+          {subscriptions &&
+            subscriptions.map((sub) => (
+              <div key={sub.id}>
+                <section>
+                  <hr />
+                  <h4 className="fw-bold">
+                    {sub.plan.nickname} ({sub.status})
+                  </h4>
+                  <h5>
+                    {(sub.plan.amount / 100).toLocaleString("en-US", {
+                      style: "currency",
+                      currency: sub.plan.currency,
+                    })}
+                    <small className="text-muted fw-light">/mo</small>
+                  </h5>
+                  <p>
+                    Renews:{" "}
+                    {moment(sub.current_period_end * 1000)
+                      .format("dddd, MMMM Do YYYY")
+                      .toString()}
+                  </p>
+                  <p>Last 4 digits: {sub.default_payment_method.card.last4}</p>
+                  <button onClick={() => navigate(`/${sub.plan.nickname.replaceAll(" ", "-").toLowerCase()}`)} className="btn btn-outline-danger">
+                    Access Subscription
+                  </button>{" "}
+                  <button onClick={manageSubscriptions} className="btn btn-outline-warning">
+                    Manage Subscription
+                  </button>
+                </section>
+              </div>
+            ))}
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

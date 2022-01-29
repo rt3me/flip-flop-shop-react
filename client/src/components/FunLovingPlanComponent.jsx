@@ -25,10 +25,12 @@ const FunLovingPlan = () => {
 
   return (
     <React.Fragment>
-      <div className="container-fluid">
-        <div className="row py-5 bg-light text-center">
-          <h2 className="display-4 fw-bold">Fun Loving</h2>
-          <p className="lead">Flip flops for the fun loving dude</p>
+      <div className="container-fluid page-heading-section bg-light">
+        <div className="container">
+          <div className="row py-5 text-center">
+            <h1 className="display-4 fw-bold">Fun Loving</h1>
+            <p className="lead">Flip flops for the fun loving dude</p>
+          </div>
         </div>
       </div>
 

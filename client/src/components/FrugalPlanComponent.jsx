@@ -25,10 +25,12 @@ const FrugalPlan = () => {
 
   return (
     <React.Fragment>
-      <div className="container-fluid">
-        <div className="row py-5 bg-light text-center">
-          <h2 className="display-4 fw-bold">Frugal</h2>
-          <p className="lead">Flip flops for the frugal guy</p>
+      <div className="container-fluid page-heading-section bg-light">
+        <div className="container">
+          <div className="row py-5 text-center">
+            <h1 className="display-4 fw-bold">Frugal</h1>
+            <p className="lead">Flip flops for the frugal guy</p>
+          </div>
         </div>
       </div>
 
