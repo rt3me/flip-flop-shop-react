@@ -48,7 +48,7 @@ const Header = () => {
             {state && state.token ? (
               <UncontrolledDropdown inNavbar nav>
                 <DropdownToggle caret nav>
-                  {state.user.name}
+                  User
                 </DropdownToggle>
                 <DropdownMenu end>
                   <DropdownItem>
