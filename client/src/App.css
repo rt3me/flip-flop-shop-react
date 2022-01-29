@@ -61,7 +61,7 @@ nav.navbar-dark {
   color: #04bf9d;
 }
 
-navbar-dark a.navbar-brand {
+navbar-dark a.navbar-brand span {
   font-family: "Permanent Marker", cursive;
   color: #ffffff;
 }

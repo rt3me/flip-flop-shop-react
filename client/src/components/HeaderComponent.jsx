@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { NavLink as RRNavLink, useNavigate } from "react-router-dom";
+import { NavLink as RRNavLink, useLocation, useNavigate } from "react-router-dom";
 import { NavLink, Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, DropdownItem, UncontrolledDropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 import { UserContext } from "../context";
 import { ReactComponent as Logo } from "../logo.svg";
@@ -9,6 +9,7 @@ const Header = () => {
   const [navOpen, setNavOpen] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const logout = () => {
     setState({ user: {}, token: "" });
@@ -82,6 +83,19 @@ const Header = () => {
           </Nav>
         </Collapse>
       </Navbar>
+
+      {location.pathname === "/" ? (
+        <div className="container-fluid page-heading-section">
+          <div className="container">
+            <div className="row py-5 text-center text-light">
+              <h1 className="display-4 fw-bold">Flip Flop Surf Shop</h1>
+              <p className="lead">Choose a subscription level and get new flip flops delivered every month. Never get hot feet at the beach again!</p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </header>
   );
 };
