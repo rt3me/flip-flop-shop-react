@@ -87,7 +87,7 @@ const Header = () => {
       {location.pathname === "/" ? (
         <div className="container-fluid page-heading-section">
           <div className="container">
-            <div className="row py-5 text-center text-light">
+            <div className="row py-sm-5 py-4 text-center text-light">
               <h1 className="display-4 fw-bold">Flip Flop Surf Shop</h1>
               <p className="lead">Choose a subscription level and get new flip flops delivered every month. Never get hot feet at the beach again!</p>
             </div>

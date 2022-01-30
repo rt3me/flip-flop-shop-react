@@ -28,20 +28,20 @@ h2 {
 .home-page-container header {
   background-image: url("../public/images/flip-flop-cover.svg");
   background-repeat: no-repeat;
-  background-position: top -80px left 50%;
+  background-position: top -50px left 50%;
   background-size: 1000px;
   min-height: 24rem;
 }
 
 @media only screen and (min-width: 768px) {
-  header {
+  .home-page-container header {
     background-position: top -180px left 50%;
     background-size: 1300px;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  header {
+  .home-page-container header {
     background-position: top -275px left 50%;
     background-size: 1550px;
   }
