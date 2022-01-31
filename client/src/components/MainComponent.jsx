@@ -31,31 +31,33 @@ const Main = () => {
         }}
       />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route
-          path="/checkout/success"
-          element={
-            // <RequireAuth>
-            <CheckoutSuccess />
-            // </RequireAuth>
-          }
-        />
-        <Route
-          path="/checkout/cancel"
-          element={
-            // <RequireAuth>
-            <CheckoutCancel />
-            // </RequireAuth>
-          }
-        />
-        <Route path="/account" element={<Account />} />
-        <Route path="/frugal" element={<FrugalPlan />} />
-        <Route path="/fun-loving" element={<FunLovingPlan />} />
-        <Route path="/fancy-pants" element={<FancyPantsPlan />} />
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/checkout/success"
+            element={
+              // <RequireAuth>
+              <CheckoutSuccess />
+              // </RequireAuth>
+            }
+          />
+          <Route
+            path="/checkout/cancel"
+            element={
+              // <RequireAuth>
+              <CheckoutCancel />
+              // </RequireAuth>
+            }
+          />
+          <Route path="/account" element={<Account />} />
+          <Route path="/frugal" element={<FrugalPlan />} />
+          <Route path="/fun-loving" element={<FunLovingPlan />} />
+          <Route path="/fancy-pants" element={<FancyPantsPlan />} />
+        </Route>
       </Routes>
       <Footer />
     </div>
