@@ -94,16 +94,19 @@ function Footer() {
               <h6 className="text-uppercase fw-bold">Contact</h6>
               <hr className="mb-4 mt-0 d-inline-block mx-auto" />
               <p>
-                <i className="fa fa-home mr-3"></i> New York, NY 10012, US
+                <i className="fa fa-home mr-3"></i> Mayville, MI 48744, US
               </p>
               <p>
-                <i className="fa fa-envelope mr-3"></i> info@example.com
+                <i className="fa fa-envelope mr-3"></i>{" "}
+                <a href="mailto:hello@codewithrob.dev" className="text-white">
+                  hello@codewithrob.dev
+                </a>
               </p>
               <p>
-                <i className="fa fa-phone mr-3"></i> + 01 234 567 88
-              </p>
-              <p>
-                <i className="fa fa-print mr-3"></i> + 01 234 567 89
+                <i className="fa fa-phone mr-3"></i>{" "}
+                <a href="tel:8103995911" className="text-white">
+                  810-399-5911
+                </a>
               </p>
             </div>
           </div>
