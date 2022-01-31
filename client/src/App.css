@@ -89,12 +89,20 @@ navbar-dark a.navbar-brand span {
   min-height: 200px;
 }
 
-.site-footer {
-  background-image: linear-gradient(#04bf9d, #00cea8);
-  padding: 20px 0;
+footer {
+  background-color: #1c2331;
 }
 
-.site-footer a,
-.site-footer h5 {
-  color: #ffffff;
+footer section:first-of-type {
+  background-color: #6351ce;
+}
+
+footer section:nth-of-type(2n) hr {
+  width: 60px;
+  background-color: #7c4dff;
+  height: 2px;
+}
+
+footer > div {
+  background-color: rgba(0, 0, 0, 0.2);
 }
