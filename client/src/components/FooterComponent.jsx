@@ -111,9 +111,9 @@ function Footer() {
       </section>
 
       <div className="text-center p-3">
-        © 2020 Copyright:
-        <Link className="text-white" to="https://mdbootstrap.com/">
-          MDBootstrap.com
+        © 2022{" "}
+        <Link className="text-white" to="https://codewithrob.dev">
+          codewithrob.dev
         </Link>
       </div>
     </footer>
