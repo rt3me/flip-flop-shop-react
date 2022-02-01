@@ -75,18 +75,32 @@ function Footer() {
               <h6 className="text-uppercase fw-bold">Contact</h6>
               <hr className="mb-4 mt-0 d-inline-block mx-auto" />
               <p>
-                <i className="fa fa-home mr-3"></i> Mayville, MI 48744, US
-              </p>
-              <p>
                 <i className="fa fa-envelope mr-3"></i>{" "}
                 <a href="mailto:hello@codewithrob.dev" className="text-white">
                   hello@codewithrob.dev
                 </a>
               </p>
               <p>
+                <i className="fa fa-envelope mr-3"></i>{" "}
+                <a href="https://codewithrob.dev" className="text-white">
+                  codewithrob.dev
+                </a>
+              </p>
+              <p>
                 <i className="fa fa-phone mr-3"></i>{" "}
                 <a href="tel:8103995911" className="text-white">
                   810-399-5911
+                </a>
+              </p>
+              <p>
+                <a href="https://twitter.com/rt3me" className="text-white me-4">
+                  <i className="fa fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/rt3me" className="text-white me-4">
+                  <i className="fa fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/rt3me" className="text-white me-4">
+                  <i className="fa fa-github"></i>
                 </a>
               </p>
             </div>
