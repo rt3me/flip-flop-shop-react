@@ -55,23 +55,18 @@ function Footer() {
               <h6 className="text-uppercase fw-bold">Useful links</h6>
               <hr className="mb-4 mt-0 d-inline-block mx-auto" />
               <p>
-                <Link to="#!" className="text-white">
+                <Link to="/account" className="text-white">
                   Your Account
                 </Link>
               </p>
               <p>
-                <Link to="#!" className="text-white">
-                  Become an Affiliate
+                <Link to="/about" className="text-white">
+                  About
                 </Link>
               </p>
               <p>
-                <Link to="#!" className="text-white">
-                  Shipping Rates
-                </Link>
-              </p>
-              <p>
-                <Link to="#!" className="text-white">
-                  Help
+                <Link to="/contact" className="text-white">
+                  Contact Us
                 </Link>
               </p>
             </div>
