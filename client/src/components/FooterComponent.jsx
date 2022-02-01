@@ -4,30 +4,21 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer className="text-center text-lg-start text-white">
-      <section className="d-flex justify-content-between p-4">
+      <section className="d-flex justify-content-center p-4">
         <div className="me-5">
-          <span>Get connected with us on social networks:</span>
+          <span>Connect on social media:</span>
         </div>
 
         <div>
-          <Link to="" className="text-white me-4">
-            <i className="fa fa-facebook-f"></i>
-          </Link>
-          <Link to="" className="text-white me-4">
+          <a href="https://twitter.com/rt3me" className="text-white me-4">
             <i className="fa fa-twitter"></i>
-          </Link>
-          <Link to="" className="text-white me-4">
-            <i className="fa fa-google"></i>
-          </Link>
-          <Link to="" className="text-white me-4">
-            <i className="fa fa-instagram"></i>
-          </Link>
-          <Link to="" className="text-white me-4">
+          </a>
+          <a href="https://www.linkedin.com/in/rt3me" className="text-white me-4">
             <i className="fa fa-linkedin"></i>
-          </Link>
-          <Link to="" className="text-white me-4">
+          </a>
+          <a href="https://github.com/rt3me" className="text-white me-4">
             <i className="fa fa-github"></i>
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -35,7 +26,7 @@ function Footer() {
         <div className="container text-center text-md-start mt-5">
           <div className="row mt-3">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold">Company name</h6>
+              <h6 className="text-uppercase fw-bold">Flip Flop Surf Shop</h6>
               <hr className="mb-4 mt-0 d-inline-block mx-auto" />
               <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </div>
@@ -44,23 +35,18 @@ function Footer() {
               <h6 className="text-uppercase fw-bold">Products</h6>
               <hr className="mb-4 mt-0 d-inline-block mx-auto" />
               <p>
-                <Link to="#!" className="text-white">
-                  MDBootstrap
+                <Link to="/#" className="text-white">
+                  Frugal
                 </Link>
               </p>
               <p>
-                <Link to="#!" className="text-white">
-                  MDWordPress
+                <Link to="/#" className="text-white">
+                  Fun Loving
                 </Link>
               </p>
               <p>
-                <Link to="#!" className="text-white">
-                  BrandFlow
-                </Link>
-              </p>
-              <p>
-                <Link to="#!" className="text-white">
-                  Bootstrap Angular
+                <Link to="/#" className="text-white">
+                  Fancy Pants
                 </Link>
               </p>
             </div>
