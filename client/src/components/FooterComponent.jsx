@@ -110,9 +110,9 @@ function Footer() {
 
       <div className="text-center p-3">
         © 2022{" "}
-        <Link className="text-white" to="https://codewithrob.dev">
+        <a href="https://codewithrob.dev" className="text-white">
           codewithrob.dev
-        </Link>
+        </a>
       </div>
     </footer>
   );
