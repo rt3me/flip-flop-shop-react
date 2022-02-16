@@ -94,12 +94,12 @@ footer {
 }
 
 footer section:first-of-type {
-  background-color: #6351ce;
+  background-color: #167070;
 }
 
 footer section:nth-of-type(2n) hr {
   width: 60px;
-  background-color: #7c4dff;
+  background-color: #fb9334;
   height: 2px;
 }
 
