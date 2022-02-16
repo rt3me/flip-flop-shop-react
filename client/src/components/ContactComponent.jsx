@@ -1,253 +1,84 @@
-import React, { Component } from "react";
-import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row } from "reactstrap";
-import { Link } from "react-router-dom";
-import { Control, Form, Errors } from "react-redux-form";
+import React, { useState, useContext } from "react";
+import { Form, InputGroup, InputGroupText, Input, Button } from "reactstrap";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { UserContext } from "../context";
 
-const required = (val) => val && val.length;
-const maxLength = (len) => (val) => !val || val.length <= len;
-const minLength = (len) => (val) => val && val.length >= len;
-const isNumber = (val) => !isNaN(+val);
-const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+const Contact = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [, setState] = useContext(UserContext);
 
-class Contact extends Component {
-  constructor(props) {
-    super(props);
+  const navigate = useNavigate();
 
-    this.state = {
-      firstName: "",
-      lastName: "",
-      phoneNum: "",
-      email: "",
-      agree: false,
-      contactType: "By Phone",
-      feedback: "",
-      touched: {
-        firstName: false,
-        lastName: false,
-        phoneNum: false,
-        email: false,
-      },
-    };
+  const handleClick = async (e) => {
+    console.log(`Email: ${email} Password: ${password}`);
+    try {
+      e.preventDefault();
+      const { data } = await axios.post("/login", {
+        email,
+        password,
+      });
+      console.log("data:", data);
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+      if (data.error) {
+        toast.error(data.error);
+      } else {
+        setEmail("");
+        setPassword("");
+        setState(data);
+        localStorage.setItem("auth", JSON.stringify(data));
+        navigate("/");
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error("Something went wrong. Try again.");
+    }
+  };
 
-  handleSubmit(values) {
-    this.props.postFeedback(values);
-    this.props.resetFeedbackForm();
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <div className="container-fluid page-heading-section bg-light">
-          <div className="container">
-            <div className="row py-5 text-center">
-              <h1 className="display-4 fw-bold">Contact Us</h1>
-              <p className="lead">Can't wait to hear from you!</p>
-            </div>
-          </div>
-        </div>
-
+  return (
+    <React.Fragment>
+      <div className="container-fluid page-heading-section bg-light">
         <div className="container">
-          <div className="row">
-            <div className="col">
-              <Breadcrumb>
-                <BreadcrumbItem>
-                  <Link to="/">Home</Link>
-                </BreadcrumbItem>
-                <BreadcrumbItem active>Contact Us</BreadcrumbItem>
-              </Breadcrumb>
-              <h2>Contact Us</h2>
-              <hr />
-            </div>
-          </div>
-
-          <div className="row row-content align-items-center">
-            <div className="col-sm-4">
-              <h5>Our Address</h5>
-              <address>
-                1 Nucamp Way
-                <br />
-                Seattle, WA 98001
-                <br />
-                U.S.A.
-              </address>
-            </div>
-            <div className="col">
-              <a role="button" className="btn btn-link" href="tel:+12065551234">
-                <i className="fa fa-phone" /> 1-206-555-1234
-              </a>
-              <br />
-              <a role="button" className="btn btn-link" href="mailto:fakeemail@fakeemail.co">
-                <i className="fa fa-envelope-o" /> campsites@nucamp.co
-              </a>
-            </div>
-          </div>
-          <div className="row row-content">
-            <div className="col-12">
-              <h2>Send us your Feedback</h2>
-              <hr />
-            </div>
-            <div className="col-md-10">
-              <Form model="feedbackForm" onSubmit={(values) => this.handleSubmit(values)}>
-                <Row className="form-group">
-                  <Label htmlFor="firstName" md={2}>
-                    First Name
-                  </Label>
-                  <Col md={10}>
-                    <Control.Text
-                      model=".firstName"
-                      id="firstName"
-                      name="firstName"
-                      placeholder="First Name"
-                      className="form-control"
-                      validators={{
-                        required,
-                        minLength: minLength(2),
-                        maxLength: maxLength(15),
-                      }}
-                    />
-                    <Errors
-                      className="text-danger"
-                      model=".firstName"
-                      show="touched"
-                      component="div"
-                      messages={{
-                        required: "Required",
-                        minLength: "Must be at least 2 characters",
-                        maxLength: "Must be 15 characters or less",
-                      }}
-                    />
-                  </Col>
-                </Row>
-                <Row className="form-group">
-                  <Label htmlFor="lastName" md={2}>
-                    Last Name
-                  </Label>
-                  <Col md={10}>
-                    <Control.Text
-                      model=".lastName"
-                      id="lastName"
-                      name="lastName"
-                      placeholder="Last Name"
-                      className="form-control"
-                      validators={{
-                        required,
-                        minLength: minLength(2),
-                        maxLength: maxLength(15),
-                      }}
-                    />
-                    <Errors
-                      className="text-danger"
-                      model=".lastName"
-                      show="touched"
-                      component="div"
-                      messages={{
-                        required: "Required",
-                        minLength: "Must be at least 2 characters",
-                        maxLength: "Must be 15 characters or less",
-                      }}
-                    />
-                  </Col>
-                </Row>
-                <Row className="form-group">
-                  <Label htmlFor="phoneNum" md={2}>
-                    Phone
-                  </Label>
-                  <Col md={10}>
-                    <Control.Text
-                      model=".phoneNum"
-                      id="phoneNum"
-                      name="phoneNum"
-                      placeholder="Phone number"
-                      className="form-control"
-                      validators={{
-                        required,
-                        minLength: minLength(10),
-                        maxLength: maxLength(15),
-                        isNumber,
-                      }}
-                    />
-                    <Errors
-                      className="text-danger"
-                      model=".phoneNum"
-                      show="touched"
-                      component="div"
-                      messages={{
-                        required: "Required",
-                        minLength: "Must be at least 10 numbers",
-                        maxLength: "Must be 15 numbers or less",
-                        isNumber: "Must be a number",
-                      }}
-                    />
-                  </Col>
-                </Row>
-                <Row className="form-group">
-                  <Label htmlFor="email" md={2}>
-                    Email
-                  </Label>
-                  <Col md={10}>
-                    <Control.Text
-                      model=".email"
-                      id="email"
-                      name="email"
-                      placeholder="Email"
-                      className="form-control"
-                      validators={{
-                        required,
-                        validEmail,
-                      }}
-                    />
-                    <Errors
-                      className="text-danger"
-                      model=".email"
-                      show="touched"
-                      component="div"
-                      messages={{
-                        required: "Required",
-                        validEmail: "Invalid email address",
-                      }}
-                    />
-                  </Col>
-                </Row>
-                <Row className="form-group">
-                  <Col md={{ size: 4, offset: 2 }}>
-                    <div className="form-check">
-                      <Label check>
-                        <Control.Checkbox className="form-check-input" model=".agree" id="agree" name="agree" checked={this.state.agree} /> <strong>&nbsp; May we contact you?</strong>
-                      </Label>
-                    </div>
-                  </Col>
-                  <Col md={4}>
-                    <Control.Select className="form-control" model=".contactType" id="contactType" name="contactType">
-                      <option>By Phone</option>
-                      <option>By Email</option>
-                    </Control.Select>
-                  </Col>
-                </Row>
-                <Row className="form-group">
-                  <Label htmlFor="feedback" md={2}>
-                    Your Feedback
-                  </Label>
-                  <Col md={10}>
-                    <Control.Textarea className="form-control" model=".feedback" id="feedback" name="feedback" rows="12" />
-                  </Col>
-                </Row>
-                <Row className="form-group">
-                  <Col md={{ size: 10, offset: 2 }}>
-                    <Button type="submit" color="primary">
-                      Send Feedback
-                    </Button>
-                  </Col>
-                </Row>
-              </Form>
-            </div>
+          <div className="row py-5 text-center">
+            <h1 className="display-4 fw-bold">Login</h1>
+            <p className="lead">Time for some flip floppin' fun!</p>
           </div>
         </div>
-      </React.Fragment>
-    );
-  }
-}
+      </div>
+
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <Form>
+              <InputGroup>
+                <InputGroupText>Email</InputGroupText>
+                <Input type="email" onChange={(e) => setEmail(e.target.value)} value={email} id="emailInput" name="email" placeholder="user@email.com" />
+              </InputGroup>
+              <br />
+              <InputGroup>
+                <InputGroupText>Password</InputGroupText>
+                <Input type="password" onChange={(e) => setPassword(e.target.value)} value={password} id="passwordInput" name="password" placeholder="password" />
+              </InputGroup>
+              <br />
+              <Button onClick={handleClick} color="primary">
+                Login
+              </Button>
+            </Form>
+            <br />
+            <br />
+            <br />
+          </div>
+        </div>
+        {/* <div className="row">
+        <div className="col">
+          <pre>{JSON.stringify({ email, password }, null, 4)}</pre>
+        </div>
+      </div> */}
+      </div>
+    </React.Fragment>
+  );
+};
 
 export default Contact;

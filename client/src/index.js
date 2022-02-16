@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import "./custom.scss";
 import reportWebVitals from "./reportWebVitals";
-import "typeface-lobster";
 import "typeface-open-sans";
 import "font-awesome/css/font-awesome.css";
 import "bootstrap-social/bootstrap-social.css";
