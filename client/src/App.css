@@ -33,6 +33,16 @@ h2 {
   min-height: 24rem;
 }
 
+.page-heading-section h1 {
+  color: #fb9334;
+}
+
+.page-heading-section p {
+  font-weight: bold;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
 @media only screen and (min-width: 768px) {
   .home-page-container header {
     background-position: top -180px left 50%;
