@@ -11,7 +11,7 @@ const PriceCard = ({ price, handleSubscription, outline, userSubscriptions }) =>
 
   return (
     <Card className={outline ? "mb-5 mb-md-0" : "mb-5 mb-md-0 border-0"}>
-      <CardImg src={price.image} alt={price.nickname} className="w-50 m-auto" />
+      <CardImg src={price.image} alt={price.nickname} className="m-auto" />
       <CardBody>
         <CardTitle tag="h3">{price.nickname}</CardTitle>
         <CardSubtitle tag="h4" className="mb-2 text-muted">
