@@ -1,36 +1,18 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Form, InputGroup, InputGroupText, Input, Button } from "reactstrap";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import toast from "react-hot-toast";
-import { UserContext } from "../context";
 
 const Contact = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [, setState] = useContext(UserContext);
-
-  const navigate = useNavigate();
+  const [message, setMessage] = useState("");
 
   const handleClick = async (e) => {
-    console.log(`Email: ${email} Password: ${password}`);
     try {
       e.preventDefault();
-      const { data } = await axios.post("/login", {
-        email,
-        password,
-      });
-      console.log("data:", data);
-
-      if (data.error) {
-        toast.error(data.error);
-      } else {
-        setEmail("");
-        setPassword("");
-        setState(data);
-        localStorage.setItem("auth", JSON.stringify(data));
-        navigate("/");
-      }
+      setName("");
+      setEmail("");
+      setMessage("");
     } catch (err) {
       console.log(err);
       toast.error("Something went wrong. Try again.");
@@ -42,8 +24,8 @@ const Contact = () => {
       <div className="container-fluid page-heading-section bg-light">
         <div className="container">
           <div className="row py-5 text-center">
-            <h1 className="display-4 fw-bold">Login</h1>
-            <p className="lead">Time for some flip floppin' fun!</p>
+            <h1 className="display-4 fw-bold">Contact Us</h1>
+            <p className="lead">Get in touch so we can talk flip flops!</p>
           </div>
         </div>
       </div>
@@ -53,17 +35,22 @@ const Contact = () => {
           <div className="col">
             <Form>
               <InputGroup>
+                <InputGroupText>Name</InputGroupText>
+                <Input type="text" onChange={(e) => setEmail(e.target.value)} value={name} id="nameInput" name="name" placeholder="Your name" />
+              </InputGroup>
+              <br />
+              <InputGroup>
                 <InputGroupText>Email</InputGroupText>
                 <Input type="email" onChange={(e) => setEmail(e.target.value)} value={email} id="emailInput" name="email" placeholder="user@email.com" />
               </InputGroup>
               <br />
               <InputGroup>
-                <InputGroupText>Password</InputGroupText>
-                <Input type="password" onChange={(e) => setPassword(e.target.value)} value={password} id="passwordInput" name="password" placeholder="password" />
+                <InputGroupText>Message</InputGroupText>
+                <Input type="textarea" onChange={(e) => setMessage(e.target.value)} value={message} id="messageInput" name="message" placeholder="Message" />
               </InputGroup>
               <br />
               <Button onClick={handleClick} color="primary">
-                Login
+                Submit
               </Button>
             </Form>
             <br />
@@ -71,11 +58,6 @@ const Contact = () => {
             <br />
           </div>
         </div>
-        {/* <div className="row">
-        <div className="col">
-          <pre>{JSON.stringify({ email, password }, null, 4)}</pre>
-        </div>
-      </div> */}
       </div>
     </React.Fragment>
   );
