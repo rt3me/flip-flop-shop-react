@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar color="primary" container="sm" expand="md" dark>
+      <Navbar color="primary" container="sm" expand="md" className="py-3" dark>
         <NavbarBrand href="/" className="d-flex w-50 mr-auto">
           <Logo alt="Logo" height="1.9rem" className="d-block align-text-top" />
           <span>&nbsp;&nbsp;Surf Shop</span>
