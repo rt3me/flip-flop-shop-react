@@ -141,6 +141,10 @@ navbar-dark a.navbar-brand span {
   height: 12rem;
 }
 
+.blockquote-footer {
+  margin-top: 1rem;
+}
+
 footer {
   background-color: #003d59;
 }
