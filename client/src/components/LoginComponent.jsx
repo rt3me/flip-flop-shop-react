@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { UserContext } from "../context";
+import PageSectionLayout from "./PageSectionLayout";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -48,35 +49,29 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <Form>
-              <InputGroup>
-                <InputGroupText>Email</InputGroupText>
-                <Input type="email" onChange={(e) => setEmail(e.target.value)} value={email} id="emailInput" name="email" placeholder="user@email.com" />
-              </InputGroup>
-              <br />
-              <InputGroup>
-                <InputGroupText>Password</InputGroupText>
-                <Input type="password" onChange={(e) => setPassword(e.target.value)} value={password} id="passwordInput" name="password" placeholder="password" />
-              </InputGroup>
-              <br />
-              <Button onClick={handleClick} color="primary">
-                Login
-              </Button>
-            </Form>
-            <br />
-            <br />
-            <br />
+      <PageSectionLayout>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+              <Form>
+                <InputGroup>
+                  <InputGroupText>Email</InputGroupText>
+                  <Input type="email" onChange={(e) => setEmail(e.target.value)} value={email} id="emailInput" name="email" placeholder="user@email.com" />
+                </InputGroup>
+                <br />
+                <InputGroup>
+                  <InputGroupText>Password</InputGroupText>
+                  <Input type="password" onChange={(e) => setPassword(e.target.value)} value={password} id="passwordInput" name="password" placeholder="password" />
+                </InputGroup>
+                <br />
+                <Button onClick={handleClick} color="primary">
+                  Login
+                </Button>
+              </Form>
+            </div>
           </div>
         </div>
-        {/* <div className="row">
-        <div className="col">
-          <pre>{JSON.stringify({ email, password }, null, 4)}</pre>
-        </div>
-      </div> */}
-      </div>
+      </PageSectionLayout>
     </React.Fragment>
   );
 };
