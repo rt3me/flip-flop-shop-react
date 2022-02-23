@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { UserContext } from "../context";
+import PageSectionLayout from "./PageSectionLayout";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -52,40 +53,34 @@ const Register = () => {
         </div>
       </div>
 
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <Form>
-              <InputGroup>
-                <InputGroupText>Name</InputGroupText>
-                <Input type="text" onChange={(e) => setName(e.target.value)} value={name} id="nameInput" name="name" placeholder="name" />
-              </InputGroup>
-              <br />
-              <InputGroup>
-                <InputGroupText>Email</InputGroupText>
-                <Input type="email" onChange={(e) => setEmail(e.target.value)} value={email} id="emailInput" name="email" placeholder="user@email.com" />
-              </InputGroup>
-              <br />
-              <InputGroup>
-                <InputGroupText>Password</InputGroupText>
-                <Input type="password" onChange={(e) => setPassword(e.target.value)} value={password} id="passwordInput" name="password" placeholder="password" />
-              </InputGroup>
-              <br />
-              <Button onClick={handleClick} color="primary">
-                Register
-              </Button>
-            </Form>
-            <br />
-            <br />
-            <br />
+      <PageSectionLayout>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+              <Form>
+                <InputGroup>
+                  <InputGroupText>Name</InputGroupText>
+                  <Input type="text" onChange={(e) => setName(e.target.value)} value={name} id="nameInput" name="name" placeholder="name" />
+                </InputGroup>
+                <br />
+                <InputGroup>
+                  <InputGroupText>Email</InputGroupText>
+                  <Input type="email" onChange={(e) => setEmail(e.target.value)} value={email} id="emailInput" name="email" placeholder="user@email.com" />
+                </InputGroup>
+                <br />
+                <InputGroup>
+                  <InputGroupText>Password</InputGroupText>
+                  <Input type="password" onChange={(e) => setPassword(e.target.value)} value={password} id="passwordInput" name="password" placeholder="password" />
+                </InputGroup>
+                <br />
+                <Button onClick={handleClick} color="primary">
+                  Register
+                </Button>
+              </Form>
+            </div>
           </div>
         </div>
-        {/* <div className="row">
-        <div className="col">
-          <pre>{JSON.stringify({ name, email, password }, null, 4)}</pre>
-        </div>
-      </div> */}
-      </div>
+      </PageSectionLayout>
     </React.Fragment>
   );
 };
