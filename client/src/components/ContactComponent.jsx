@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Form, InputGroup, InputGroupText, Input, Button } from "reactstrap";
 import toast from "react-hot-toast";
+import PageSectionLayout from "./PageSectionLayout";
 
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleClick = async (e) => {
+  const handleClick = (e) => {
     try {
       e.preventDefault();
       setName("");
@@ -30,35 +31,34 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <Form>
-              <InputGroup>
-                <InputGroupText>Name</InputGroupText>
-                <Input type="text" onChange={(e) => setEmail(e.target.value)} value={name} id="nameInput" name="name" placeholder="Your name" />
-              </InputGroup>
-              <br />
-              <InputGroup>
-                <InputGroupText>Email</InputGroupText>
-                <Input type="email" onChange={(e) => setEmail(e.target.value)} value={email} id="emailInput" name="email" placeholder="user@email.com" />
-              </InputGroup>
-              <br />
-              <InputGroup>
-                <InputGroupText>Message</InputGroupText>
-                <Input type="textarea" onChange={(e) => setMessage(e.target.value)} value={message} id="messageInput" name="message" placeholder="Message" />
-              </InputGroup>
-              <br />
-              <Button onClick={handleClick} color="primary">
-                Submit
-              </Button>
-            </Form>
-            <br />
-            <br />
-            <br />
+      <PageSectionLayout>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+              <Form>
+                <InputGroup>
+                  <InputGroupText>Name</InputGroupText>
+                  <Input type="text" onChange={(e) => setEmail(e.target.value)} value={name} id="nameInput" name="name" placeholder="Your name" />
+                </InputGroup>
+                <br />
+                <InputGroup>
+                  <InputGroupText>Email</InputGroupText>
+                  <Input type="email" onChange={(e) => setEmail(e.target.value)} value={email} id="emailInput" name="email" placeholder="user@email.com" />
+                </InputGroup>
+                <br />
+                <InputGroup>
+                  <InputGroupText>Message</InputGroupText>
+                  <Input type="textarea" rows="4" onChange={(e) => setMessage(e.target.value)} value={message} id="messageInput" name="message" placeholder="Message" />
+                </InputGroup>
+                <br />
+                <Button onClick={handleClick} color="primary">
+                  Submit
+                </Button>
+              </Form>
+            </div>
           </div>
         </div>
-      </div>
+      </PageSectionLayout>
     </React.Fragment>
   );
 };
