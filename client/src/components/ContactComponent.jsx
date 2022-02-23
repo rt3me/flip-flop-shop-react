@@ -38,7 +38,7 @@ const Contact = () => {
               <Form>
                 <InputGroup>
                   <InputGroupText>Name</InputGroupText>
-                  <Input type="text" onChange={(e) => setEmail(e.target.value)} value={name} id="nameInput" name="name" placeholder="Your name" />
+                  <Input type="text" onChange={(e) => setName(e.target.value)} value={name} id="nameInput" name="name" placeholder="Your name" />
                 </InputGroup>
                 <br />
                 <InputGroup>
