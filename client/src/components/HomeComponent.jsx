@@ -69,16 +69,14 @@ function Home(props) {
   };
 
   return (
-    <React.Fragment>
-      <PageSectionLayout sectionTitle={"Check out our plans"} sectionSubtitle={"Choose the plan that gives you just the right amount of flip flop!"}>
-        {prices &&
-          prices.map((price) => (
-            <div key={price.id} className="col-md">
-              <PriceCard price={price} handleSubscription={handleClick} userSubscriptions={userSubscriptions} />
-            </div>
-          ))}
-      </PageSectionLayout>
-    </React.Fragment>
+    <PageSectionLayout sectionTitle={"Check out our plans"} sectionSubtitle={"Choose the plan that gives you just the right amount of flip flop!"}>
+      {prices &&
+        prices.map((price) => (
+          <div key={price.id} className="col-md">
+            <PriceCard price={price} handleSubscription={handleClick} userSubscriptions={userSubscriptions} />
+          </div>
+        ))}
+    </PageSectionLayout>
   );
 }
 
