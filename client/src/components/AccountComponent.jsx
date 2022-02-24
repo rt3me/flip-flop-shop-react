@@ -75,7 +75,6 @@ const Account = () => {
       const { data } = await axios.get("/subscriptions");
       console.log("subs => ", data);
       setSubscriptions(data.data);
-      console.log("subscriptions:", subscriptions);
     };
 
     if (state && state.token) getSubscriptions();
