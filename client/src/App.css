@@ -102,6 +102,19 @@ header::before {
   }
 }
 
+@media only screen and (max-width: 768px) {
+  nav.navbar div.navbar-collapse {
+    background-color: rgb(22, 112, 112);
+    text-align: center;
+    z-index: 100;
+    position: absolute;
+    top: 4.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    left: 0%;
+  }
+}
+
 nav.navbar-dark {
   /* internal page nav */
   background-color: #167070 !important;
