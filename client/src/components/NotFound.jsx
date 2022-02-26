@@ -17,10 +17,10 @@ const Login = () => {
       <PageSectionLayout>
         <div className="container">
           <div className="row">
-            <div className="col-md-4 offset-md-2 col-lg-3 offset-lg-3 py-5">
+            <div className="col-md-4 offset-md-2 col-lg-3 offset-lg-3 py-md-5">
               <h2>Sorry you're a bit lost. Here are some useful links to take a look at</h2>
             </div>
-            <div className="col-md-4 col-lg-3 py-5 lost-links-list">
+            <div className="col-md-4 col-lg-3 py-md-5 pt-5 lost-links-list">
               <ul>
                 <li>
                   <h2>
