@@ -14,6 +14,7 @@ import Account from "./AccountComponent";
 import FrugalPlan from "./FrugalPlanComponent";
 import FunLovingPlan from "./FunLovingPlanComponent";
 import FancyPantsPlan from "./FancyPantsPlanComponent";
+import NotFound from "./NotFound";
 import { useLocation } from "react-router-dom";
 
 const Main = () => {
@@ -57,6 +58,7 @@ const Main = () => {
           <Route path="/frugal" element={<FrugalPlan />} />
           <Route path="/fun-loving" element={<FunLovingPlan />} />
           <Route path="/fancy-pants" element={<FancyPantsPlan />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
       <Footer />

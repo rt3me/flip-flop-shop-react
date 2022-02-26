@@ -165,6 +165,16 @@ nav.navbar-dark {
   margin-top: 1rem;
 }
 
+.lost-links-list ul {
+  list-style: none;
+}
+
+.lost-links-list ul li h2::before {
+  content: "👍";
+  display: inline-block;
+  margin-right: 1rem;
+}
+
 footer {
   background-color: #003d59;
 }
