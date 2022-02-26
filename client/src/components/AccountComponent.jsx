@@ -134,7 +134,7 @@ const Account = () => {
           </div>
         </PageSectionLayout>
       ) : (
-        <PageSectionLayout sectionTitle={"Check out our plans"} sectionSubtitle={"Choose the plan that gives you just the right amount of flip flop!"}>
+        <PageSectionLayout sectionTitle={"You still need a plan"} sectionSubtitle={"You are not currently subscribed. Feel free to choose a plan!"}>
           <div style={{ maxWidth: "992px", margin: "0 auto" }} className="row">
             {prices &&
               prices.map((price) => (
