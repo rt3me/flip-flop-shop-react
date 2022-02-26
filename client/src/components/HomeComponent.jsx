@@ -70,12 +70,14 @@ function Home(props) {
 
   return (
     <PageSectionLayout sectionTitle={"Check out our plans"} sectionSubtitle={"Choose the plan that gives you just the right amount of flip flop!"}>
-      {prices &&
-        prices.map((price) => (
-          <div key={price.id} className="col-md">
-            <PriceCard price={price} handleSubscription={handleClick} userSubscriptions={userSubscriptions} />
-          </div>
-        ))}
+      <div style={{ maxWidth: "992px", margin: "0 auto" }} className="row">
+        {prices &&
+          prices.map((price) => (
+            <div key={price.id} className="col-md col-lg-4">
+              <PriceCard price={price} handleSubscription={handleClick} userSubscriptions={userSubscriptions} />
+            </div>
+          ))}
+      </div>
     </PageSectionLayout>
   );
 }
